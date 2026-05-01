@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mavio — The first AI tennis coach. Built for the way you actually train.</title>
+<meta name="description" content="An AI-native tennis coach that observes, analyzes, and adapts to your game in real time. Hardware + software, designed in Redwood City. Beta program open now; Kickstarter soon.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mavio">
+<meta property="og:title" content="Mavio — Meet your new tennis coach. AI-native. Always ready.">
+<meta property="og:description" content="An AI tennis coach that knows your game, adapts to your skill, and actually helps you level up. Beta program open. Kickstarter soon.">
+<meta property="og:url" content="https://banana-daddy.github.io/mavio-ai/direction-atelier.html">
+<meta property="og:image" content="https://banana-daddy.github.io/mavio-ai/images/og-direction-atelier.jpg">
+<meta property="og:image:secure_url" content="https://banana-daddy.github.io/mavio-ai/images/og-direction-atelier.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A clay tennis court at dusk, dust kicked up after an unseen rally, ball in foreground. Mavio editorial.">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@hellomavio">
+<meta name="twitter:title" content="Mavio — Meet your new tennis coach. AI-native. Always ready.">
+<meta name="twitter:description" content="An AI tennis coach that knows your game, adapts to your skill, and actually helps you level up.">
+<meta name="twitter:image" content="https://banana-daddy.github.io/mavio-ai/images/og-direction-atelier.jpg">
+<meta name="twitter:image:alt" content="A clay tennis court at dusk, dust kicked up after an unseen rally.">
+
+<meta name="theme-color" content="#0E0E0C">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" sizes="512x512" href="images/favicon-512.png">
+<link rel="canonical" href="https://banana-daddy.github.io/mavio-ai/direction-atelier.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  :root{
+    --ink:#0E0E0C;
+    --paper:#F5F0E8;
+    --clay:#B8451C;
+    --cobalt:#2540F0;
+    --charcoal:#2A2826;
+    --rule:rgba(245,240,232,0.12);
+  }
+  *{ -webkit-font-smoothing:antialiased; }
+  html, body { background:var(--ink); color:var(--paper); font-family:'Outfit', system-ui, sans-serif; line-height:1.55; }
+  .serif{ font-family:'Fraunces', serif; font-feature-settings:'ss01'; }
+  .mono{ font-family:'JetBrains Mono', monospace; font-feature-settings:'tnum'; }
+  .label{ text-transform:uppercase; letter-spacing:0.22em; font-size:0.7rem; font-weight:500; }
+
+  .hero-bg{ position:absolute; inset:0; background-image:url('images/A-hero-01.jpg'); background-size:cover; background-position:center 30%; }
+  .hero-veil{ position:absolute; inset:0; background:linear-gradient(180deg, rgba(14,14,12,0.4) 0%, rgba(14,14,12,0.55) 60%, rgba(14,14,12,0.95) 100%); }
+
+  .display-xl{ font-family:'Fraunces', serif; font-weight:500; line-height:0.95; letter-spacing:-0.02em; font-variation-settings:'opsz' 144; }
+  .display-l{ font-family:'Fraunces', serif; font-weight:500; line-height:1.0; letter-spacing:-0.015em; font-variation-settings:'opsz' 96; }
+
+  .pillar-num{ font-family:'Fraunces', serif; font-weight:400; line-height:1; letter-spacing:-0.04em; }
+
+  .grain::after{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background-image:radial-gradient(rgba(245,240,232,0.025) 1px, transparent 1px);
+    background-size:3px 3px; mix-blend-mode:overlay;
+  }
+
+  .cobalt-ring{
+    position:relative;
+  }
+  .cobalt-ring::before{
+    content:""; position:absolute; inset:-1px; border-radius:inherit;
+    padding:1px; background:linear-gradient(135deg, var(--cobalt), transparent 60%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+  }
+
+  .reveal{ opacity:0; transform:translateY(20px); transition:opacity 0.9s ease, transform 0.9s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  .ph-slot{
+    border:1px dashed rgba(37,64,240,0.45); border-radius:6px;
+    background:rgba(37,64,240,0.03);
+  }
+  .ph-tag{
+    position:absolute; top:10px; left:10px;
+    font-family:'JetBrains Mono', monospace; font-size:9px; letter-spacing:0.18em;
+    color:rgba(245,240,232,0.7); text-transform:uppercase;
+    background:rgba(37,64,240,0.85); padding:4px 8px; border-radius:2px;
+  }
+
+  ::selection{ background:var(--cobalt); color:var(--paper); }
+</style>
+</head>
+<body>
+
+<!-- ── Nav ─────────────────────────────────────────────────────────── -->
+<nav class="fixed top-0 inset-x-0 z-50 bg-[var(--ink)]/70 backdrop-blur-md border-b border-[var(--rule)]">
+  <div class="max-w-7xl mx-auto px-5 md:px-10 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2.5">
+      <!-- Echo v1 cobalt mark -->
+      <svg viewBox="0 0 40 40" class="w-6 h-6">
+        <circle cx="20" cy="20" r="16" fill="none" stroke="#2540F0" stroke-width="0.7" opacity="0.25"/>
+        <circle cx="20" cy="20" r="11" fill="none" stroke="#2540F0" stroke-width="1" opacity="0.55"/>
+        <circle cx="20" cy="20" r="6" fill="#2540F0"/>
+      </svg>
+      <span class="serif text-xl font-medium">mavıo</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8 mono text-[11px] uppercase tracking-[0.18em] text-[var(--paper)]/70">
+      <a href="#story" class="hover:text-[var(--paper)] transition">Story</a>
+      <a href="#how" class="hover:text-[var(--paper)] transition">How it works</a>
+      <a href="#progress" class="hover:text-[var(--paper)] transition">Progress</a>
+      <a href="#beta" class="hover:text-[var(--paper)] transition">Beta</a>
+    </div>
+    <a href="#beta" class="mono text-[11px] uppercase tracking-[0.18em] px-4 py-2 border border-[#2540F0] text-[var(--paper)] hover:bg-[#2540F0] transition">Join waitlist</a>
+  </div>
+</nav>
+
+<!-- ── Hero ────────────────────────────────────────────────────────── -->
+<header class="relative h-[100svh] min-h-[640px] grain overflow-hidden">
+  <div class="hero-bg"></div>
+  <div class="hero-veil"></div>
+
+  <div class="relative z-10 h-full max-w-7xl mx-auto px-5 md:px-10 flex flex-col justify-end pb-16 md:pb-24">
+    <div class="mono text-[11px] uppercase tracking-[0.22em] text-[var(--paper)]/65 mb-6 reveal">
+      <span class="text-[#2540F0]">●</span> Beta open · Kickstarter Q3 2026 · Redwood City
+    </div>
+    <h1 class="display-xl text-[clamp(3.4rem,11vw,9rem)] max-w-5xl reveal">
+      Meet your new <em class="text-[#2540F0]/85 not-italic font-normal italic">tennis coach.</em>
+    </h1>
+    <p class="serif text-xl md:text-2xl mt-6 max-w-xl text-[var(--paper)]/75 reveal" style="font-variation-settings:'opsz' 24;">
+      AI-native. Always ready. The first ball machine that actually learns the way you play.
+    </p>
+  </div>
+
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 mono text-[10px] uppercase tracking-[0.3em] text-[var(--paper)]/40 z-10">
+    scroll →
+  </div>
+</header>
+
+<!-- ── Sophie's pull-quote ─────────────────────────────────────────── -->
+<section id="story" class="py-24 md:py-40 relative">
+  <div class="max-w-5xl mx-auto px-5 md:px-10">
+    <div class="mono text-[11px] uppercase tracking-[0.22em] text-[#2540F0] mb-10 reveal">From the founder · Sophie Luo</div>
+
+    <blockquote class="reveal">
+      <p class="serif font-normal text-[clamp(1.9rem,4.6vw,3.6rem)] leading-[1.18] tracking-[-0.01em]" style="font-variation-settings:'opsz' 96;">
+        <span class="text-[#2540F0] serif text-5xl md:text-7xl align-text-top mr-1 leading-none">&ldquo;</span>Coaching was crazy expensive. Hitting partners flaked. And ball machines? The ones I tried felt like <em class="serif font-normal italic text-[var(--clay)]">relics from the 90s.</em><span class="text-[#2540F0] serif text-5xl md:text-7xl align-text-top ml-1 leading-none">&rdquo;</span>
+      </p>
+    </blockquote>
+
+    <div class="mt-12 md:mt-16 flex items-center gap-5 reveal">
+      <div class="w-14 h-14 rounded-full bg-[var(--charcoal)] flex items-center justify-center serif text-[var(--paper)] text-lg">SL</div>
+      <div>
+        <div class="serif text-lg leading-tight">Sophie Luo</div>
+        <div class="mono text-[10px] uppercase tracking-[0.2em] text-[var(--paper)]/55 mt-1">Founder · UPenn CS · ex-AR-glasses unicorn</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Founder origin chapter (full-bleed image + body text) ────────── -->
+<section class="border-t border-[var(--rule)]">
+  <div class="grid md:grid-cols-12 gap-0">
+    <!-- Image -->
+    <div class="md:col-span-7 relative aspect-[4/5] md:aspect-auto md:min-h-[760px]">
+      <img src="images/founder-window-01.jpg" alt="Founder examining a robotics component in industrial-window light" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+      <span class="ph-tag">Future shoot · Sophie portrait</span>
+    </div>
+    <!-- Body -->
+    <div class="md:col-span-5 bg-[var(--charcoal)] px-6 md:px-12 py-16 md:py-24 flex flex-col justify-center">
+      <div class="mono text-[11px] uppercase tracking-[0.22em] text-[#2540F0] mb-6 reveal">Origin</div>
+      <h2 class="display-l text-[clamp(1.8rem,3.4vw,2.6rem)] mb-8 reveal">A founder, a 3D printer, and a living-room floor.</h2>
+      <div class="space-y-5 text-[var(--paper)]/80 leading-relaxed reveal">
+        <p>Mavio started in March 2025 as a one-person project. Sophie hacked together early prototypes, wrote the first computer-vision code, and 3D-printed brackets on her living room floor.</p>
+        <p>She'd just come off leading product at an AI + AR-glasses startup that became a unicorn — taking hardware from prototype to mass production with partners like Foxconn and Flex. Tennis was personal: a sport she loved, with no good answer for serious training between lessons.</p>
+        <p>Six months later, the team is small but exact: a hardware lead with twenty years of embedded systems, a redesigned launch wheel that survived field-test three, and the first integration between machine and AI app — under way as you read this.</p>
+      </div>
+      <div class="mt-10 flex items-center gap-3 mono text-[10px] uppercase tracking-[0.2em] text-[var(--paper)]/45 reveal">
+        <span class="w-8 h-px bg-[#2540F0]"></span>
+        <span>Founded March 2025 · Redwood City, CA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 4 Pillars ───────────────────────────────────────────────────── -->
+<section id="how" class="py-24 md:py-40 border-t border-[var(--rule)]">
+  <div class="max-w-7xl mx-auto px-5 md:px-10">
+    <div class="grid md:grid-cols-12 gap-6 mb-16 md:mb-24">
+      <div class="md:col-span-3">
+        <div class="mono text-[11px] uppercase tracking-[0.22em] text-[#2540F0] reveal">How it works</div>
+      </div>
+      <div class="md:col-span-9">
+        <h2 class="display-l text-[clamp(2.2rem,5.5vw,4.6rem)] reveal">Four moves, every session.</h2>
+        <p class="serif text-lg md:text-xl mt-6 max-w-2xl text-[var(--paper)]/70 reveal" style="font-variation-settings:'opsz' 18;">
+          Built around how a coach actually works — observe, analyze, act, summarize. Mavio runs that loop continuously, every shot.
+        </p>
+      </div>
+    </div>
+
+    <!-- Pillar 1: OBSERVES -->
+    <div class="grid md:grid-cols-12 gap-6 md:gap-12 py-12 md:py-20 border-t border-[var(--rule)]">
+      <div class="md:col-span-1">
+        <div class="pillar-num text-6xl md:text-7xl text-[#2540F0]">01</div>
+      </div>
+      <div class="md:col-span-5">
+        <div class="mono text-[11px] uppercase tracking-[0.22em] text-[var(--paper)]/55 mb-4 reveal">Observes</div>
+        <h3 class="display-l text-[clamp(1.6rem,3vw,2.4rem)] mb-5 reveal">Computer vision watches your body, the ball, and the court.</h3>
+        <p class="text-[var(--paper)]/75 leading-relaxed reveal">Real-time tracking of stance, swing mechanics, footwork, and ball trajectory. No wearables, no extra cameras — the machine sees you and reads the rally.</p>
+      </div>
+      <div class="md:col-span-6 relative aspect-video rounded-sm overflow-hidden">
+        <img src="images/ai-overlay-01.jpg" alt="Player silhouette with motion-tracking AI overlay" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <span class="ph-tag">Future shoot · live overlay</span>
+      </div>
+    </div>
+
+    <!-- Pillar 2: ANALYZES -->
+    <div class="grid md:grid-cols-12 gap-6 md:gap-12 py-12 md:py-20 border-t border-[var(--rule)]">
+      <div class="md:col-span-1">
+        <div class="pillar-num text-6xl md:text-7xl text-[#2540F0]">02</div>
+      </div>
+      <div class="md:col-span-5">
+        <div class="mono text-[11px] uppercase tracking-[0.22em] text-[var(--paper)]/55 mb-4 reveal">Analyzes</div>
+        <h3 class="display-l text-[clamp(1.6rem,3vw,2.4rem)] mb-5 reveal">Patterns surface. Weaknesses get named. Strengths get logged.</h3>
+        <p class="text-[var(--paper)]/75 leading-relaxed reveal">Mavio doesn't just see — it understands. Stroke patterns, court positioning, contact-point consistency. A coach's eye, persistent across every session.</p>
+      </div>
+      <div class="md:col-span-6 relative aspect-video rounded-sm overflow-hidden">
+        <img src="images/ai-trajectory-01.jpg" alt="Glowing yellow ball trajectory arc traced across a navy court" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <span class="ph-tag">Future shoot · trajectory data</span>
+      </div>
+    </div>
+
+    <!-- Pillar 3: ACTS -->
+    <div class="grid md:grid-cols-12 gap-6 md:gap-12 py-12 md:py-20 border-t border-[var(--rule)]">
+      <div class="md:col-span-1">
+        <div class="pillar-num text-6xl md:text-7xl text-[#2540F0]">03</div>
+      </div>
+      <div class="md:col-span-5">
+        <div class="mono text-[11px] uppercase tracking-[0.22em] text-[var(--paper)]/55 mb-4 reveal">Acts</div>
+        <h3 class="display-l text-[clamp(1.6rem,3vw,2.4rem)] mb-5 reveal">The machine adapts mid-rally. Speed, spin, placement.</h3>
+        <p class="text-[var(--paper)]/75 leading-relaxed reveal">Adaptive drills with progressive difficulty. If you nail ten down-the-line forehands, the next ball moves. The machine plays the game with you, not at you.</p>
+      </div>
+      <div class="md:col-span-6 relative aspect-video rounded-sm overflow-hidden bg-[var(--charcoal)]">
+        <img src="images/field-test.gif" alt="Field test footage of the Mavio machine in motion" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+        <span class="ph-tag">Real footage · field test 03</span>
+      </div>
+    </div>
+
+    <!-- Pillar 4: SUMMARIZES -->
+    <div class="grid md:grid-cols-12 gap-6 md:gap-12 py-12 md:py-20 border-t border-b border-[var(--rule)]">
+      <div class="md:col-span-1">
+        <div class="pillar-num text-6xl md:text-7xl text-[#2540F0]">04</div>
+      </div>
+      <div class="md:col-span-5">
+        <div class="mono text-[11px] uppercase tracking-[0.22em] text-[var(--paper)]/55 mb-4 reveal">Summarizes</div>
+        <h3 class="display-l text-[clamp(1.6rem,3vw,2.4rem)] mb-5 reveal">Every session builds on the last. A real practice arc.</h3>
+        <p class="text-[var(--paper)]/75 leading-relaxed reveal">Session statistics, progress reports, a development roadmap. Not vanity charts — a coherent path to actually getting better at tennis, week by week, year over year.</p>
+      </div>
+      <div class="md:col-span-6 relative aspect-video rounded-sm overflow-hidden">
+        <img src="images/app-dashboard-01.jpg" alt="Dark-mode mobile app showing tennis training analytics" class="absolute inset-0 w-full h-full object-cover object-center" loading="lazy">
+        <span class="ph-tag">Future shoot · app on real phone</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Atmospheric break ─────────────────────────────────────────────── -->
+<section class="relative h-[60svh] min-h-[420px] overflow-hidden">
+  <img src="images/clay-dust-01.jpg" alt="Clay dust kicked up from a tennis ball strike, frozen in golden light" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+  <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(14,14,12,0.0) 0%, rgba(14,14,12,0.5) 100%);"></div>
+  <div class="relative z-10 h-full max-w-5xl mx-auto px-5 md:px-10 flex items-end pb-12">
+    <p class="serif text-2xl md:text-4xl text-[var(--paper)]/85 max-w-2xl" style="font-variation-settings:'opsz' 36;">
+      Tennis is a game of small adjustments. Mavio sees them, even when you can't.
+    </p>
+  </div>
+</section>
+
+<!-- ── Real progress ─────────────────────────────────────────────────── -->
+<section id="progress" class="py-24 md:py-32 border-t border-[var(--rule)]">
+  <div class="max-w-7xl mx-auto px-5 md:px-10">
+    <div class="grid md:grid-cols-12 gap-6 mb-16">
+      <div class="md:col-span-3">
+        <div class="mono text-[11px] uppercase tracking-[0.22em] text-[#2540F0] reveal">Progress · 2025</div>
+      </div>
+      <div class="md:col-span-9">
+        <h2 class="display-l text-[clamp(2rem,4.6vw,3.6rem)] reveal">Built in public.</h2>
+        <p class="serif text-lg md:text-xl mt-6 max-w-2xl text-[var(--paper)]/70 reveal" style="font-variation-settings:'opsz' 18;">
+          Three field tests. One redesign. A new name. The receipts so far.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-4 md:gap-6">
+      <article class="bg-[var(--charcoal)] p-6 md:p-8">
+        <div class="mono text-[10px] uppercase tracking-[0.22em] text-[#2540F0]">Jun 23 · 2025</div>
+        <h3 class="serif text-xl md:text-2xl mt-3 leading-snug">First field test — 10–80 MPH, all spin types.</h3>
+        <p class="text-[var(--paper)]/70 mt-3 text-sm leading-relaxed">Dual brushless motors and servo-controlled oscillation validated. Speed and spin specs exceeded.</p>
+      </article>
+      <article class="bg-[var(--charcoal)] p-6 md:p-8">
+        <div class="mono text-[10px] uppercase tracking-[0.22em] text-[#2540F0]">Jul 22 · 2025</div>
+        <h3 class="serif text-xl md:text-2xl mt-3 leading-snug">Bye Rallie, Hello Mavio.</h3>
+        <p class="text-[var(--paper)]/70 mt-3 text-sm leading-relaxed">The original name was taken. Beta members helped pick the new one. Same big ambition.</p>
+      </article>
+      <article class="bg-[var(--charcoal)] p-6 md:p-8">
+        <div class="mono text-[10px] uppercase tracking-[0.22em] text-[#2540F0]">Field test 03</div>
+        <h3 class="serif text-xl md:text-2xl mt-3 leading-snug">New launch wheels. First app integration.</h3>
+        <p class="text-[var(--paper)]/70 mt-3 text-sm leading-relaxed">PU wheels swapped for a more durable solution. Machine and AI app testing together for the first time.</p>
+      </article>
+    </div>
+
+    <div class="mt-10 reveal">
+      <a href="https://www.mavio.ai/updates" class="mono text-[11px] uppercase tracking-[0.2em] text-[#2540F0] hover:underline underline-offset-4">Read all updates →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Specs strip ──────────────────────────────────────────────────── -->
+<section class="py-24 md:py-32 border-t border-[var(--rule)] bg-[var(--charcoal)]">
+  <div class="max-w-7xl mx-auto px-5 md:px-10">
+    <div class="mono text-[11px] uppercase tracking-[0.22em] text-[#2540F0] mb-12 reveal">Mavio · technical</div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-6">
+      <div>
+        <div class="serif text-5xl md:text-6xl font-medium" style="font-variation-settings:'opsz' 96;">30<span class="text-[#2540F0] text-2xl ml-1 font-normal">lb</span></div>
+        <div class="mono text-[10px] uppercase tracking-[0.2em] text-[var(--paper)]/55 mt-3">Portable · 13 kg</div>
+      </div>
+      <div>
+        <div class="serif text-5xl md:text-6xl font-medium" style="font-variation-settings:'opsz' 96;">150</div>
+        <div class="mono text-[10px] uppercase tracking-[0.2em] text-[var(--paper)]/55 mt-3">Ball capacity</div>
+      </div>
+      <div>
+        <div class="serif text-5xl md:text-6xl font-medium" style="font-variation-settings:'opsz' 96;">10–80<span class="text-[#2540F0] text-2xl ml-1 font-normal">mph</span></div>
+        <div class="mono text-[10px] uppercase tracking-[0.2em] text-[var(--paper)]/55 mt-3">Speed range</div>
+      </div>
+      <div>
+        <div class="serif text-5xl md:text-6xl font-medium" style="font-variation-settings:'opsz' 96;">6600<span class="text-[#2540F0] text-2xl ml-1 font-normal">rpm</span></div>
+        <div class="mono text-[10px] uppercase tracking-[0.2em] text-[var(--paper)]/55 mt-3">Dual brushless DC</div>
+      </div>
+      <div>
+        <div class="serif text-3xl md:text-4xl font-medium" style="font-variation-settings:'opsz' 60;">±45°<span class="text-[var(--paper)]/45"> H</span></div>
+        <div class="mono text-[10px] uppercase tracking-[0.2em] text-[var(--paper)]/55 mt-3">Horizontal oscillation</div>
+      </div>
+      <div>
+        <div class="serif text-3xl md:text-4xl font-medium" style="font-variation-settings:'opsz' 60;">5–50°<span class="text-[var(--paper)]/45"> V</span></div>
+        <div class="mono text-[10px] uppercase tracking-[0.2em] text-[var(--paper)]/55 mt-3">Vertical range</div>
+      </div>
+      <div>
+        <div class="serif text-3xl md:text-4xl font-medium" style="font-variation-settings:'opsz' 60;">4 spins</div>
+        <div class="mono text-[10px] uppercase tracking-[0.2em] text-[var(--paper)]/55 mt-3">Flat · Topspin · Backspin · Slice</div>
+      </div>
+      <div>
+        <div class="serif text-3xl md:text-4xl font-medium" style="font-variation-settings:'opsz' 60;">App + ML</div>
+        <div class="mono text-[10px] uppercase tracking-[0.2em] text-[var(--paper)]/55 mt-3">Real-time companion</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Founder workshop break ───────────────────────────────────────── -->
+<section class="grid md:grid-cols-2 border-t border-[var(--rule)]">
+  <div class="relative aspect-square md:aspect-auto md:min-h-[520px]">
+    <img src="images/founder-printer-01.jpg" alt="Desktop 3D printer mid-print at night, white plastic robotic component emerging" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+    <span class="ph-tag">Future shoot · workshop b-roll</span>
+  </div>
+  <div class="relative aspect-square md:aspect-auto md:min-h-[520px]">
+    <img src="images/founder-sketchbook-01.jpg" alt="Hand-drawn engineering schematics in an open sketchbook beside a coffee mug and a single motor" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+    <span class="ph-tag">Future shoot · process</span>
+  </div>
+</section>
+
+<!-- ── Beta CTA ─────────────────────────────────────────────────────── -->
+<section id="beta" class="py-24 md:py-40 border-t border-[var(--rule)] relative overflow-hidden">
+  <div class="absolute inset-0 opacity-[0.04]" style="background:radial-gradient(60% 80% at 50% 0%, var(--cobalt), transparent 70%);"></div>
+
+  <div class="relative max-w-5xl mx-auto px-5 md:px-10 text-center">
+    <div class="mono text-[11px] uppercase tracking-[0.22em] text-[#2540F0] mb-8 reveal">Beta · Open</div>
+    <h2 class="display-xl text-[clamp(2.6rem,8vw,6rem)] reveal">
+      Join the first <em class="text-[#2540F0]/85 not-italic font-normal italic">100.</em>
+    </h2>
+    <p class="serif text-lg md:text-2xl mt-8 max-w-2xl mx-auto text-[var(--paper)]/75 reveal" style="font-variation-settings:'opsz' 24;">
+      The Kickstarter campaign goes live in a few months. Beta members shape the launch — pricing, features, the order ships first. Take the survey to be considered.
+    </p>
+
+    <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 reveal">
+      <a href="https://www.mavio.ai/survey" class="px-8 py-4 bg-[#2540F0] text-[var(--paper)] mono text-[11px] uppercase tracking-[0.22em] hover:bg-[#1a30c8] transition">Take the survey · Win $100</a>
+      <a href="https://www.mavio.ai/" class="px-8 py-4 border border-[var(--paper)]/25 text-[var(--paper)] mono text-[11px] uppercase tracking-[0.22em] hover:border-[var(--paper)]/65 transition">Join the waitlist</a>
+    </div>
+
+    <div class="mt-12 mono text-[10px] uppercase tracking-[0.22em] text-[var(--paper)]/45 reveal">
+      hello@mavio.ai · Redwood City, CA · @hellomavio
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ───────────────────────────────────────────────────────── -->
+<footer class="border-t border-[var(--rule)] py-16">
+  <div class="max-w-7xl mx-auto px-5 md:px-10">
+    <div class="grid md:grid-cols-12 gap-10">
+      <div class="md:col-span-5">
+        <div class="flex items-center gap-2.5">
+          <svg viewBox="0 0 40 40" class="w-7 h-7">
+            <circle cx="20" cy="20" r="16" fill="none" stroke="#2540F0" stroke-width="0.7" opacity="0.25"/>
+            <circle cx="20" cy="20" r="11" fill="none" stroke="#2540F0" stroke-width="1" opacity="0.55"/>
+            <circle cx="20" cy="20" r="6" fill="#2540F0"/>
+          </svg>
+          <span class="serif text-2xl font-medium">mavıo</span>
+        </div>
+        <p class="serif mt-5 text-lg text-[var(--paper)]/70 max-w-md leading-snug" style="font-variation-settings:'opsz' 18;">
+          Tennis meets real AI. Hardware + software, designed in Redwood City.
+        </p>
+      </div>
+      <div class="md:col-span-3">
+        <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--paper)]/45 mb-4">Brand</div>
+        <ul class="space-y-2.5 text-sm text-[var(--paper)]/80">
+          <li><a href="https://www.mavio.ai/brand-story" class="hover:text-[#2540F0] transition">About</a></li>
+          <li><a href="https://www.mavio.ai/updates" class="hover:text-[#2540F0] transition">Updates</a></li>
+          <li><a href="https://www.mavio.ai/faq" class="hover:text-[#2540F0] transition">FAQ</a></li>
+          <li><a href="https://www.mavio.ai/contact" class="hover:text-[#2540F0] transition">Contact</a></li>
+        </ul>
+      </div>
+      <div class="md:col-span-4">
+        <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--paper)]/45 mb-4">Follow</div>
+        <ul class="space-y-2.5 text-sm text-[var(--paper)]/80">
+          <li><a href="https://x.com/hellomavio" class="hover:text-[#2540F0] transition">X · @hellomavio</a></li>
+          <li><a href="https://www.tiktok.com/@hellomavio" class="hover:text-[#2540F0] transition">TikTok · @hellomavio</a></li>
+          <li><a href="https://www.youtube.com/channel/UCe2iDqdEYGT3k_F4HtWyajA" class="hover:text-[#2540F0] transition">YouTube</a></li>
+          <li><a href="https://www.facebook.com/groups/963981362613884/" class="hover:text-[#2540F0] transition">Facebook group</a></li>
+          <li><a href="https://www.linkedin.com/company/hellomavio" class="hover:text-[#2540F0] transition">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-16 pt-8 border-t border-[var(--rule)] flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--paper)]/45">© 2026 Mavio · 303 Twin Dolphin Drive, Redwood City CA 94065</div>
+      <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--paper)]/45">Direction Atelier · Banana Bytes mockup v1</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Banana Bytes credit -->
+<div style="text-align:center; padding:1.5rem 1rem; font-size:0.7rem; letter-spacing:0.05em; opacity:0.45; background:#0E0E0C; color:#F5F0E8;">
+  <a href="https://instagram.com/BananaCares" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+    Mockup created by Banana Bytes
+  </a>
+</div>
+
+<script>
+  // Reveal-on-scroll
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>

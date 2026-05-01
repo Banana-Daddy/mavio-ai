@@ -3,75 +3,225 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mavio · Banana Bytes Mockup</title>
-<meta name="robots" content="noindex">
-<meta name="theme-color" content="#0a0a0a">
+<title>Mavio — three brand directions, by Banana Bytes</title>
+<meta name="description" content="Three concept directions for Mavio's Kickstarter-bound brand site, by Banana Bytes. Atelier (editorial), Specimen (engineered), Volley (kinetic). Pick one.">
 
-<script src="https://cdn.tailwindcss.com"></script>
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mavio · Banana Bytes mockup">
+<meta property="og:title" content="Mavio — three brand directions, by Banana Bytes">
+<meta property="og:description" content="Three concept directions for Mavio's Kickstarter-bound brand site. Atelier · Specimen · Volley.">
+<meta property="og:url" content="https://banana-daddy.github.io/mavio-ai/">
+<meta property="og:image" content="https://banana-daddy.github.io/mavio-ai/images/og.jpg">
+<meta property="og:image:secure_url" content="https://banana-daddy.github.io/mavio-ai/images/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A clay tennis court at dusk, dust kicked up after an unseen rally. Mavio editorial.">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@hellomavio">
+<meta name="twitter:title" content="Mavio — three brand directions, by Banana Bytes">
+<meta name="twitter:description" content="Three concept directions for Mavio's Kickstarter-bound brand site. Atelier · Specimen · Volley.">
+<meta name="twitter:image" content="https://banana-daddy.github.io/mavio-ai/images/og.jpg">
+<meta name="twitter:image:alt" content="A clay tennis court at dusk. Mavio editorial.">
+
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" sizes="512x512" href="images/favicon-512.png">
+<link rel="canonical" href="https://banana-daddy.github.io/mavio-ai/">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-  body { font-family: 'Bricolage Grotesque', system-ui, sans-serif; background: #0a0a0a; color: #fff; }
-  .display { font-family: 'Fraunces', serif; letter-spacing: -0.015em; line-height: 0.95; font-weight: 700; }
-  .mono { font-family: 'JetBrains Mono', monospace; }
+  *{ -webkit-font-smoothing:antialiased; }
+  html, body { background:#0A0A0A; color:#F4F4F1; font-family:'Outfit', system-ui, sans-serif; line-height:1.5; }
+  .serif{ font-family:'Fraunces', serif; font-feature-settings:'ss01'; }
+  .mono{ font-family:'JetBrains Mono', monospace; font-feature-settings:'tnum'; }
+
+  .display{ font-family:'Fraunces', serif; font-weight:500; line-height:0.95; letter-spacing:-0.02em; font-variation-settings:'opsz' 144; }
+
+  .card{ transition: transform 0.35s ease, box-shadow 0.35s ease; }
+  .card:hover{ transform: translateY(-4px); }
+  .card .img-wrap{ overflow: hidden; }
+  .card .img-wrap img{ transition: transform 0.7s ease; }
+  .card:hover .img-wrap img{ transform: scale(1.04); }
+
+  .reveal{ opacity:0; transform:translateY(20px); transition:opacity 0.9s ease, transform 0.9s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  ::selection{ background:#FF5A1F; color:#F4F4F1; }
 </style>
 </head>
 <body>
 
-<header class="border-b border-white/10">
-  <div class="max-w-5xl mx-auto px-6 md:px-10 py-6 flex items-end justify-between gap-3">
-    <div>
-      <div class="mono text-[10px] uppercase tracking-[0.22em] text-white/55">Banana Bytes / Mavio · v1</div>
-      <h1 class="display text-3xl md:text-4xl mt-2">Mavio mockup · in progress.</h1>
+<!-- ── Nav ─────────────────────────────────────────────────────────── -->
+<nav class="border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-5 md:px-10 py-5 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <span class="serif text-2xl">mavio</span>
+      <span class="mono text-[10px] uppercase tracking-[0.22em] text-white/45 hidden md:inline">/ Banana Bytes mockup</span>
     </div>
-    <div class="hidden md:block mono text-[10px] uppercase tracking-[0.18em] text-white/55">04.30.26</div>
+    <div class="flex items-center gap-3 md:gap-6 mono text-[10px] uppercase tracking-[0.18em] text-white/55">
+      <a href="select-mavio-explore.html" class="hover:text-white transition hidden md:inline">Image selection</a>
+      <a href="logos.html" class="hover:text-white transition">Logo concepts</a>
+      <a href="https://www.mavio.ai/" class="text-white hover:text-[#C8E812] transition">mavio.ai →</a>
+    </div>
   </div>
+</nav>
+
+<!-- ── Hero ────────────────────────────────────────────────────────── -->
+<header class="px-5 md:px-10 pt-20 md:pt-32 pb-12 md:pb-20 max-w-7xl mx-auto">
+  <div class="mono text-[11px] uppercase tracking-[0.25em] text-white/55 mb-6 reveal">Three directions · for Sophie · 04.30.26</div>
+  <h1 class="display text-[clamp(3rem,9vw,7.5rem)] reveal max-w-5xl">
+    Three brands.<br>One company.<br>Pick the one that <em class="not-italic font-normal italic text-[#C8E812]">feels right.</em>
+  </h1>
+  <p class="serif text-xl md:text-2xl mt-8 max-w-2xl text-white/75 reveal" style="font-variation-settings:'opsz' 24;">
+    Each direction is a fully distinct creative interpretation, not a color swap. Built mobile-first using real content from <a href="https://www.mavio.ai" class="underline underline-offset-4 decoration-white/40 hover:decoration-[#C8E812] hover:text-[#C8E812] transition">mavio.ai</a> and a curated set of 35 candidate art assets.
+  </p>
 </header>
 
-<main class="max-w-5xl mx-auto px-6 md:px-10 py-12 md:py-16">
+<!-- ── 3 Direction cards ────────────────────────────────────────────── -->
+<main class="max-w-7xl mx-auto px-5 md:px-10 pb-24 md:pb-32 space-y-4 md:space-y-6">
 
-  <p class="display text-2xl md:text-3xl leading-snug max-w-3xl">
-    Three brand directions for Sophie. Currently in the asset-selection phase — pick the keepers below before I lock the live mockups.
-  </p>
+  <!-- Direction A — Atelier -->
+  <a href="direction-atelier.html" class="card group block bg-[#0E0E0C] border border-white/10 hover:border-[#2540F0]/60 reveal">
+    <div class="grid md:grid-cols-12">
+      <div class="md:col-span-7 img-wrap">
+        <img src="images/og-direction-atelier.jpg" alt="Direction A — Atelier preview: clay court at dusk" class="w-full h-full object-cover aspect-[16/10] md:aspect-auto">
+      </div>
+      <div class="md:col-span-5 p-8 md:p-12 flex flex-col justify-between">
+        <div>
+          <div class="mono text-[10px] uppercase tracking-[0.25em] text-[#2540F0] mb-3">Direction A · Atelier</div>
+          <h2 class="display text-[clamp(2.4rem,4.5vw,3.6rem)]">The editorial founder story.</h2>
+          <p class="serif mt-5 text-lg text-white/70 leading-snug" style="font-variation-settings:'opsz' 18;">
+            Vogue-grade editorial on a warm dark canvas. Sophie's narrative as the spine, clay-court atmosphere as the texture, cobalt as the cool AI accent. <em class="text-white/85">Premium tech with soul.</em>
+          </p>
+          <div class="mt-6 flex flex-wrap gap-2 mono text-[10px] uppercase tracking-[0.2em] text-white/55">
+            <span class="px-2.5 py-1 border border-white/15">Fraunces serif</span>
+            <span class="px-2.5 py-1 border border-white/15">Echo v1 cobalt</span>
+            <span class="px-2.5 py-1 border border-white/15">Clay + cream + cobalt</span>
+          </div>
+        </div>
+        <div class="mt-8 mono text-[11px] uppercase tracking-[0.22em] text-[#2540F0]">Open direction →</div>
+      </div>
+    </div>
+  </a>
 
-  <div class="mt-12 md:mt-16 grid md:grid-cols-2 gap-4">
-    <a href="select-mavio-explore.html" class="group block bg-[#0d0d0d] border-2 border-white/15 hover:border-[#D4F542] p-8 md:p-10 transition-all">
-      <div class="mono text-[10px] uppercase tracking-[0.22em] text-white/55">Step 01 · live</div>
-      <div class="display text-2xl md:text-3xl mt-3">Select the keepers →</div>
-      <p class="mt-3 text-white/70 leading-snug">35 candidate assets — 30 newly generated for this build, 5 real source assets from mavio.ai. Click to tag USE / BENCH / KILL. Copy back when done.</p>
-      <div class="mt-6 mono text-[11px] uppercase tracking-[0.18em] text-[#D4F542]">Open selection page</div>
-    </a>
+  <!-- Direction B — Specimen -->
+  <a href="direction-specimen.html" class="card group block bg-[#F4F4F1] text-[#0A0A0A] border border-white/10 hover:border-[#FF5A1F]/60 reveal">
+    <div class="grid md:grid-cols-12">
+      <div class="md:col-span-7 img-wrap">
+        <img src="images/og-direction-specimen.jpg" alt="Direction B — Specimen preview: brushless DC motor specimen" class="w-full h-full object-cover aspect-[16/10] md:aspect-auto">
+      </div>
+      <div class="md:col-span-5 p-8 md:p-12 flex flex-col justify-between bg-[#F4F4F1]">
+        <div>
+          <div class="mono text-[10px] uppercase tracking-[0.25em] text-[#FF5A1F] mb-3">Direction B · Specimen</div>
+          <h2 class="text-[clamp(2.4rem,4.5vw,3.6rem)]" style="font-family:'Outfit', sans-serif; font-weight:700; line-height:0.95; letter-spacing:-0.035em;">Engineered to think.</h2>
+          <p class="mt-5 text-lg text-[#0A0A0A]/75 leading-snug">
+            Apple / Teenage Engineering / Leica energy. Off-white industrial, hairline grids, oversized numerics, motor-as-hero. The spec sheet, made physical. Built for <em>the Kickstarter campaign page</em>.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-2 mono text-[10px] uppercase tracking-[0.2em] text-[#0A0A0A]/55">
+            <span class="px-2.5 py-1 border border-[#0A0A0A]/15">Bricolage Grotesque 800</span>
+            <span class="px-2.5 py-1 border border-[#0A0A0A]/15">Spec orange</span>
+            <span class="px-2.5 py-1 border border-[#0A0A0A]/15">Bone + ink + sport</span>
+          </div>
+        </div>
+        <div class="mt-8 mono text-[11px] uppercase tracking-[0.22em] text-[#FF5A1F]">Open direction →</div>
+      </div>
+    </div>
+  </a>
 
-    <a href="logos.html" class="group block bg-[#0d0d0d] border-2 border-white/15 hover:border-[#C8552B] p-8 md:p-10 transition-all">
-      <div class="mono text-[10px] uppercase tracking-[0.22em] text-white/55">Step 02 · live</div>
-      <div class="display text-2xl md:text-3xl mt-3">Three logo concepts →</div>
-      <p class="mt-3 text-white/70 leading-snug">Trace · Spec · Volley — three logo systems for Mavio. Each carries a wordmark, a mark, a monogram, and a stamp. Pick the family.</p>
-      <div class="mt-6 mono text-[11px] uppercase tracking-[0.18em] text-[#C8552B]">Open logo concepts</div>
-    </a>
-  </div>
-
-  <div class="mt-16 md:mt-24 border-t border-white/10 pt-10">
-    <div class="mono text-[10px] uppercase tracking-[0.22em] text-white/55">Step 03 · pending your selections</div>
-    <div class="display text-xl md:text-2xl mt-3 text-white/40">Three direction mockups — Atelier · Specimen · Volley</div>
-    <p class="mt-3 text-white/50 leading-snug max-w-2xl">Will publish here once you've tagged the keepers. Each direction is a fully distinct creative interpretation, not a color swap. Mobile-first, real content from mavio.ai, full Open Graph share preview.</p>
-  </div>
+  <!-- Direction C — Volley -->
+  <a href="direction-volley.html" class="card group block bg-[#0B1F3A] border border-white/10 hover:border-[#C8E812]/60 reveal">
+    <div class="grid md:grid-cols-12">
+      <div class="md:col-span-7 img-wrap">
+        <img src="images/og-direction-volley.jpg" alt="Direction C — Volley preview: yellow tennis ball on a navy hardcourt baseline at sunrise" class="w-full h-full object-cover aspect-[16/10] md:aspect-auto">
+      </div>
+      <div class="md:col-span-5 p-8 md:p-12 flex flex-col justify-between bg-[#0B1F3A]">
+        <div>
+          <div class="mono text-[10px] uppercase tracking-[0.25em] text-[#C8E812] mb-3">Direction C · Volley</div>
+          <h2 class="text-[clamp(2.4rem,4.5vw,3.6rem)] text-[#FAFAF7]" style="font-family:'Outfit', sans-serif; font-weight:700; line-height:0.92; letter-spacing:-0.045em;">A coach that listens.</h2>
+          <p class="mt-5 text-lg text-[#FAFAF7]/75 leading-snug">
+            Nike / On Running / Stripe energy. Court navy, optic-green tennis pulse, live stats dashboard, kinetic motion. <em class="text-[#C8E812]">AI sport, sport-aware AI.</em>
+          </p>
+          <div class="mt-6 flex flex-wrap gap-2 mono text-[10px] uppercase tracking-[0.2em] text-[#FAFAF7]/55">
+            <span class="px-2.5 py-1 border border-[#FAFAF7]/15">Outfit geometric</span>
+            <span class="px-2.5 py-1 border border-[#FAFAF7]/15">Echo v2 green</span>
+            <span class="px-2.5 py-1 border border-[#FAFAF7]/15">Navy + bone + tennis-green</span>
+          </div>
+        </div>
+        <div class="mt-8 mono text-[11px] uppercase tracking-[0.22em] text-[#C8E812]">Open direction →</div>
+      </div>
+    </div>
+  </a>
 
 </main>
 
-<footer class="border-t border-white/10 mt-20">
-  <div class="max-w-5xl mx-auto px-6 md:px-10 py-8 flex items-center justify-between gap-3">
-    <div class="mono text-[10px] uppercase tracking-[0.22em] text-white/55">Mavio · Banana Bytes 2026</div>
-    <a href="https://www.mavio.ai" class="mono text-[10px] uppercase tracking-[0.22em] text-white/55 hover:text-white">mavio.ai →</a>
+<!-- ── Process strip ────────────────────────────────────────────────── -->
+<section class="border-t border-white/10 py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-5 md:px-10">
+    <div class="mono text-[11px] uppercase tracking-[0.25em] text-white/55 mb-6 reveal">Process</div>
+    <h2 class="display text-[clamp(2rem,4.5vw,3.4rem)] mb-12 reveal">How this build came together.</h2>
+
+    <div class="grid md:grid-cols-3 gap-4 md:gap-6">
+      <div class="bg-[#0E0E0C] p-6 md:p-8 border border-white/10">
+        <div class="mono text-[10px] uppercase tracking-[0.22em] text-[#C8E812]">01 · Read</div>
+        <h3 class="serif text-xl md:text-2xl mt-3 leading-snug">mavio.ai + every sub-page · founder context · competitor scan</h3>
+        <p class="mt-3 text-sm text-white/70 leading-relaxed">Sophie's full bio, every spec, every update post, all real images. The founder origin story drives the narrative. Competitive scan vs. Tenniix, PongBot, Acemate.</p>
+      </div>
+      <div class="bg-[#0E0E0C] p-6 md:p-8 border border-white/10">
+        <div class="mono text-[10px] uppercase tracking-[0.22em] text-[#C8E812]">02 · Generate</div>
+        <h3 class="serif text-xl md:text-2xl mt-3 leading-snug">35 candidate assets · 30 newly generated · Grok + Nano Banana Pro</h3>
+        <p class="mt-3 text-sm text-white/70 leading-relaxed">Hero atmospheres, founder editorials, AI overlays, product shots, court textures. Plus 3 logo concepts via NB Pro at 2K. <a href="select-mavio-explore.html" class="underline underline-offset-4 hover:text-[#C8E812]">See the asset library →</a></p>
+      </div>
+      <div class="bg-[#0E0E0C] p-6 md:p-8 border border-white/10">
+        <div class="mono text-[10px] uppercase tracking-[0.22em] text-[#C8E812]">03 · Build</div>
+        <h3 class="serif text-xl md:text-2xl mt-3 leading-snug">Three directions · mobile-first · full OG share previews</h3>
+        <p class="mt-3 text-sm text-white/70 leading-relaxed">Each direction is a complete brand site. Real content from mavio.ai. Banana Bytes craft on the typography, hierarchy, motion, and photo direction. Pick one to ship.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ───────────────────────────────────────────────────────── -->
+<footer class="border-t border-white/10 py-12">
+  <div class="max-w-7xl mx-auto px-5 md:px-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+    <div>
+      <div class="serif text-2xl">mavio · banana bytes</div>
+      <div class="mono text-[10px] uppercase tracking-[0.22em] text-white/45 mt-2">Three brand directions for Sophie · v1 · 04.30.26</div>
+    </div>
+    <div class="flex flex-wrap gap-4 md:gap-6 mono text-[10px] uppercase tracking-[0.22em] text-white/65">
+      <a href="select-mavio-explore.html" class="hover:text-white transition">Image selection page</a>
+      <a href="logos.html" class="hover:text-white transition">Logo concepts</a>
+      <a href="https://github.com/Banana-Daddy/mavio-ai" class="hover:text-white transition">Repo</a>
+      <a href="https://www.mavio.ai" class="hover:text-white transition">mavio.ai →</a>
+    </div>
   </div>
 </footer>
 
-<div style="text-align:center; padding:1.5rem 1rem; font-size:0.7rem; letter-spacing:0.05em; opacity:0.45; background:#0a0a0a; color:#fff;">
+<!-- Banana Bytes credit -->
+<div style="text-align:center; padding:1.5rem 1rem; font-size:0.7rem; letter-spacing:0.05em; opacity:0.45; background:#0A0A0A; color:#F4F4F1;">
   <a href="https://instagram.com/BananaCares" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
     Mockup created by Banana Bytes
   </a>
 </div>
+
+<script>
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
 
 </body>
 </html>

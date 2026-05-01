@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mavio — Engineered to think. Built to last 10,000 sessions.</title>
+<meta name="description" content="A precision AI tennis ball machine. 30 lbs, 150 balls, dual brushless DC motors at 6600 RPM, 10–80 MPH, all spin types. Designed in Redwood City. Beta open. Kickstarter Q3 2026.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mavio">
+<meta property="og:title" content="Mavio — Engineered to think. Built to last 10,000 sessions.">
+<meta property="og:description" content="30 lbs · 150 balls · dual brushless DC at 6600 RPM · 10–80 MPH · all spin types. AI-native tennis hardware. Beta open.">
+<meta property="og:url" content="https://banana-daddy.github.io/mavio-ai/direction-specimen.html">
+<meta property="og:image" content="https://banana-daddy.github.io/mavio-ai/images/og-direction-specimen.jpg">
+<meta property="og:image:secure_url" content="https://banana-daddy.github.io/mavio-ai/images/og-direction-specimen.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A precision brushless DC motor specimen on a clean white seamless backdrop. Mavio engineering.">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@hellomavio">
+<meta name="twitter:title" content="Mavio — Engineered to think. Built to last 10,000 sessions.">
+<meta name="twitter:description" content="A precision AI tennis ball machine. 30 lbs, 150 balls, dual brushless DC motors. Beta open. Kickstarter Q3 2026.">
+<meta name="twitter:image" content="https://banana-daddy.github.io/mavio-ai/images/og-direction-specimen.jpg">
+<meta name="twitter:image:alt" content="Brushless DC motor specimen. Mavio engineering.">
+
+<meta name="theme-color" content="#F4F4F1">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" sizes="512x512" href="images/favicon-512.png">
+<link rel="canonical" href="https://banana-daddy.github.io/mavio-ai/direction-specimen.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  :root{
+    --paper:#F4F4F1;
+    --ink:#0A0A0A;
+    --sport:#FF5A1F;
+    --graphite:#9CA39A;
+    --chalk:#E8E5DD;
+    --rule:rgba(10,10,10,0.12);
+  }
+  *{ -webkit-font-smoothing:antialiased; }
+  html, body { background:var(--paper); color:var(--ink); font-family:'Bricolage Grotesque', system-ui, sans-serif; line-height:1.5; }
+  .mono{ font-family:'JetBrains Mono', monospace; font-feature-settings:'tnum'; }
+  .label{ text-transform:uppercase; letter-spacing:0.22em; font-size:0.7rem; font-weight:500; }
+
+  .grid-bg{ background-image:linear-gradient(rgba(10,10,10,.045) 1px, transparent 1px),linear-gradient(90deg, rgba(10,10,10,.045) 1px, transparent 1px); background-size:48px 48px; }
+
+  .display-xl{ font-family:'Bricolage Grotesque', sans-serif; font-weight:800; line-height:0.92; letter-spacing:-0.045em; font-variation-settings:'opsz' 96; }
+  .display-l{ font-family:'Bricolage Grotesque', sans-serif; font-weight:800; line-height:0.95; letter-spacing:-0.035em; font-variation-settings:'opsz' 72; }
+  .grotesk-h{ font-family:'Bricolage Grotesque', sans-serif; font-weight:700; letter-spacing:-0.02em; }
+
+  .crosshair{ position:absolute; width:14px; height:14px; opacity:0.45; }
+  .crosshair::before, .crosshair::after { content:""; position:absolute; background:var(--ink); }
+  .crosshair::before { left:50%; top:0; bottom:0; width:1px; margin-left:-0.5px; }
+  .crosshair::after  { top:50%; left:0; right:0; height:1px; margin-top:-0.5px; }
+
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  .ph-tag{
+    position:absolute; top:10px; left:10px;
+    font-family:'JetBrains Mono', monospace; font-size:9px; letter-spacing:0.18em;
+    color:#F4F4F1; text-transform:uppercase;
+    background:#FF5A1F; padding:4px 8px; border-radius:2px;
+  }
+
+  .callout-line{ position:absolute; }
+
+  ::selection{ background:var(--sport); color:var(--paper); }
+</style>
+</head>
+<body>
+
+<!-- ── Nav ─────────────────────────────────────────────────────────── -->
+<nav class="fixed top-0 inset-x-0 z-50 bg-[var(--paper)]/85 backdrop-blur-md border-b border-[var(--rule)]">
+  <div class="max-w-7xl mx-auto px-5 md:px-10 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2">
+      <!-- Spec mark: small ink wordmark with pilot dot -->
+      <svg viewBox="0 0 100 30" class="h-5">
+        <text x="0" y="24" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="28" letter-spacing="-1.5" fill="#0A0A0A">mavıo</text>
+        <circle cx="59" cy="6" r="2.4" fill="#FF5A1F"/>
+      </svg>
+    </a>
+    <div class="hidden md:flex items-center gap-7 mono text-[10px] uppercase tracking-[0.22em] text-[var(--ink)]/70">
+      <a href="#hardware" class="hover:text-[var(--sport)] transition">Hardware</a>
+      <a href="#engineering" class="hover:text-[var(--sport)] transition">Engineering</a>
+      <a href="#how" class="hover:text-[var(--sport)] transition">How</a>
+      <a href="#progress" class="hover:text-[var(--sport)] transition">Progress</a>
+      <a href="#beta" class="hover:text-[var(--sport)] transition">Beta</a>
+    </div>
+    <a href="#beta" class="mono text-[10px] uppercase tracking-[0.22em] px-4 py-2 border border-[var(--ink)] text-[var(--ink)] hover:bg-[var(--sport)] hover:border-[var(--sport)] hover:text-[var(--paper)] transition">Reserve</a>
+  </div>
+</nav>
+
+<!-- ── Hero ────────────────────────────────────────────────────────── -->
+<header class="pt-24 md:pt-28 pb-12 md:pb-20 grid-bg border-b border-[var(--rule)] relative">
+  <div class="absolute top-20 left-6 crosshair"></div>
+  <div class="absolute top-20 right-6 crosshair"></div>
+
+  <div class="max-w-7xl mx-auto px-5 md:px-10">
+    <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--ink)]/60 mb-8 reveal">
+      <span class="text-[var(--sport)]">●</span> Mavio · Type 01 · Hardware Specimen
+    </div>
+
+    <h1 class="display-xl text-[clamp(3.4rem,12vw,11rem)] reveal max-w-6xl">Engineered to think.</h1>
+    <p class="mt-6 md:mt-8 text-lg md:text-2xl max-w-2xl text-[var(--ink)]/75 leading-snug reveal">
+      A precision tennis ball machine with a brain. Dual brushless DC motors. Computer-vision eyes. Designed in Redwood City to last ten thousand sessions.
+    </p>
+
+    <div class="mt-12 md:mt-20 relative reveal">
+      <img src="images/B-hero-01.jpg" alt="Brushless DC motor specimen on white seamless backdrop" class="w-full block rounded-sm">
+      <span class="ph-tag">Future shoot · production motor</span>
+
+      <!-- Spec callouts -->
+      <div class="absolute top-0 right-0 hidden lg:flex flex-col items-end pt-6 pr-6">
+        <div class="text-right">
+          <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--sport)]">A · Stator</div>
+          <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--ink)]/55 mt-1">Brushless DC · 6600 RPM</div>
+        </div>
+      </div>
+      <div class="absolute bottom-0 left-0 hidden lg:flex flex-col pb-6 pl-6">
+        <div>
+          <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--sport)]">B · Bracket</div>
+          <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--ink)]/55 mt-1">CNC anodized · machined in-house</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ── Spec sheet bento ─────────────────────────────────────────────── -->
+<section id="hardware" class="py-20 md:py-32 border-b border-[var(--rule)]">
+  <div class="max-w-7xl mx-auto px-5 md:px-10">
+    <div class="grid md:grid-cols-12 gap-6 mb-12 md:mb-16">
+      <div class="md:col-span-3">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--sport)] reveal">Spec sheet</div>
+      </div>
+      <div class="md:col-span-9">
+        <h2 class="display-l text-[clamp(2.4rem,6vw,5rem)] reveal">Every number, on the record.</h2>
+      </div>
+    </div>
+
+    <!-- Bento grid -->
+    <div class="grid grid-cols-2 md:grid-cols-6 grid-rows-[auto_auto_auto] gap-3 md:gap-4 auto-rows-[minmax(140px,auto)]">
+
+      <!-- Big: weight -->
+      <div class="col-span-2 md:col-span-3 md:row-span-2 bg-[var(--ink)] text-[var(--paper)] p-6 md:p-10 flex flex-col justify-between min-h-[280px] md:min-h-[420px]">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--paper)]/55">01 · Weight</div>
+        <div>
+          <div class="display-xl text-[clamp(5rem,12vw,9rem)] text-[var(--paper)]" style="font-variation-settings:'opsz' 96;">30<span class="text-[var(--sport)] text-3xl md:text-5xl ml-2 align-baseline">lb</span></div>
+          <p class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--paper)]/55 mt-3">13 kg · single-hand carry · trunk-friendly</p>
+        </div>
+      </div>
+
+      <!-- Capacity -->
+      <div class="col-span-1 md:col-span-3 bg-[var(--chalk)] p-6 md:p-8 flex flex-col justify-between min-h-[140px] md:min-h-[200px]">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--ink)]/55">02 · Capacity</div>
+        <div class="display-l text-[clamp(2.6rem,6vw,4.4rem)]">150 <span class="mono text-sm text-[var(--ink)]/55">balls</span></div>
+      </div>
+
+      <!-- Speed -->
+      <div class="col-span-1 md:col-span-3 bg-[var(--sport)] text-[var(--paper)] p-6 md:p-8 flex flex-col justify-between min-h-[140px] md:min-h-[200px]">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--paper)]/75">03 · Speed range</div>
+        <div class="display-l text-[clamp(2.4rem,5.5vw,4rem)]">10–80 <span class="mono text-sm text-[var(--paper)]/75">MPH</span></div>
+      </div>
+
+      <!-- RPM -->
+      <div class="col-span-2 md:col-span-3 bg-[var(--chalk)] p-6 md:p-8 flex flex-col justify-between min-h-[140px] md:min-h-[200px]">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--ink)]/55">04 · Motor</div>
+        <div>
+          <div class="display-l text-[clamp(2.4rem,5.5vw,4rem)]">6600 <span class="mono text-sm text-[var(--ink)]/55">RPM</span></div>
+          <p class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--ink)]/55 mt-2">Dual brushless DC · field-tested</p>
+        </div>
+      </div>
+
+      <!-- Spin -->
+      <div class="col-span-2 md:col-span-3 border border-[var(--ink)] p-6 md:p-8 flex flex-col justify-between min-h-[140px] md:min-h-[200px]">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--ink)]/55">05 · Spin control</div>
+        <div>
+          <div class="grotesk-h text-2xl md:text-3xl">Flat · Topspin · Backspin · Slice</div>
+          <p class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--ink)]/55 mt-2">Independent wheel control</p>
+        </div>
+      </div>
+
+      <!-- Oscillation -->
+      <div class="col-span-2 md:col-span-2 bg-[var(--ink)] text-[var(--paper)] p-6 md:p-8 flex flex-col justify-between min-h-[140px] md:min-h-[200px]">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--paper)]/55">06 · Oscillation</div>
+        <div>
+          <div class="display-l text-[clamp(2rem,4vw,2.8rem)] text-[var(--paper)]">±45° H</div>
+          <div class="display-l text-[clamp(2rem,4vw,2.8rem)] text-[var(--sport)] mt-1">5–50° V</div>
+        </div>
+      </div>
+
+      <!-- AI -->
+      <div class="col-span-2 md:col-span-2 bg-[var(--chalk)] p-6 md:p-8 flex flex-col justify-between min-h-[140px] md:min-h-[200px]">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--ink)]/55">07 · Intelligence</div>
+        <div>
+          <div class="grotesk-h text-xl md:text-2xl leading-tight">Computer vision + adaptive ML</div>
+          <p class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--ink)]/55 mt-2">On-device + companion app</p>
+        </div>
+      </div>
+
+      <!-- Operations -->
+      <div class="col-span-2 md:col-span-2 border border-[var(--ink)] p-6 md:p-8 flex flex-col justify-between min-h-[140px] md:min-h-[200px]">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--ink)]/55">08 · Origin</div>
+        <div>
+          <div class="grotesk-h text-xl md:text-2xl leading-tight">Designed in Redwood City</div>
+          <p class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--ink)]/55 mt-2">Manufactured with Foxconn / Flex partners</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Knolling teardown ────────────────────────────────────────────── -->
+<section id="engineering" class="py-20 md:py-32 border-b border-[var(--rule)]">
+  <div class="max-w-7xl mx-auto px-5 md:px-10">
+    <div class="grid md:grid-cols-12 gap-6 mb-12">
+      <div class="md:col-span-3">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--sport)] reveal">Inside Mavio</div>
+      </div>
+      <div class="md:col-span-9">
+        <h2 class="display-l text-[clamp(2.2rem,5.6vw,4.6rem)] reveal">Every part chosen on purpose.</h2>
+        <p class="mt-6 max-w-2xl text-lg text-[var(--ink)]/75 leading-relaxed reveal">
+          Two brushless motors. Four polyurethane wheels (the second redesign — the first wore out and we said so publicly). One green PCB. One CMOS camera module. Two anodized aluminum brackets. Hardware lead by Ray Shen, twenty years of embedded systems.
+        </p>
+      </div>
+    </div>
+
+    <div class="relative">
+      <img src="images/engineering-knolling-01.jpg" alt="Top-down knolling photograph of Mavio components: motors, wheels, PCB, brackets, screws, camera module" class="w-full block rounded-sm">
+      <span class="ph-tag">Future shoot · official teardown</span>
+    </div>
+
+    <!-- Real wheels comparison strip -->
+    <div class="mt-6 grid grid-cols-2 gap-3 md:gap-6">
+      <div class="relative">
+        <img src="images/worn-wheel.jpeg" alt="Original PU launch wheel after field tests, visibly worn" class="w-full aspect-[4/3] object-cover rounded-sm">
+        <div class="absolute bottom-3 left-3 mono text-[10px] uppercase tracking-[0.22em] text-[var(--paper)] bg-[var(--ink)]/80 px-2.5 py-1.5">v1 · PU · worn after field test 02</div>
+      </div>
+      <div class="relative">
+        <img src="images/new_wheels.jpg" alt="Redesigned launch wheels with more durable material" class="w-full aspect-[4/3] object-cover rounded-sm">
+        <div class="absolute bottom-3 left-3 mono text-[10px] uppercase tracking-[0.22em] text-[var(--paper)] bg-[var(--sport)] px-2.5 py-1.5">v2 · durable · field test 03</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── How it works ─────────────────────────────────────────────────── -->
+<section id="how" class="py-20 md:py-32 border-b border-[var(--rule)] bg-[var(--chalk)]">
+  <div class="max-w-7xl mx-auto px-5 md:px-10">
+    <div class="grid md:grid-cols-12 gap-6 mb-12 md:mb-16">
+      <div class="md:col-span-3">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--sport)] reveal">Operating loop</div>
+      </div>
+      <div class="md:col-span-9">
+        <h2 class="display-l text-[clamp(2.2rem,5.6vw,4.6rem)] reveal">Capture · Analyze · Adapt · Improve.</h2>
+        <p class="mt-6 max-w-2xl text-lg text-[var(--ink)]/75 leading-relaxed reveal">A single closed loop, every shot. A coach's job, automated honestly — no ChatGPT hand-waving.</p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-4 gap-3 md:gap-4">
+      <div class="bg-[var(--paper)] border border-[var(--rule)] p-6 md:p-8">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--sport)]">01</div>
+        <div class="grotesk-h text-2xl md:text-3xl mt-4">Capture</div>
+        <p class="mt-3 text-sm text-[var(--ink)]/70 leading-relaxed">Computer vision tracks movement, posture, footwork, and ball trajectory in real time.</p>
+      </div>
+      <div class="bg-[var(--paper)] border border-[var(--rule)] p-6 md:p-8">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--sport)]">02</div>
+        <div class="grotesk-h text-2xl md:text-3xl mt-4">Analyze</div>
+        <p class="mt-3 text-sm text-[var(--ink)]/70 leading-relaxed">AI identifies weaknesses, surfaces strengths, and finds optimal training patterns for your game.</p>
+      </div>
+      <div class="bg-[var(--paper)] border border-[var(--rule)] p-6 md:p-8">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--sport)]">03</div>
+        <div class="grotesk-h text-2xl md:text-3xl mt-4">Adapt</div>
+        <p class="mt-3 text-sm text-[var(--ink)]/70 leading-relaxed">The machine adjusts speed, spin, and placement in real time. Drills get harder as you get better.</p>
+      </div>
+      <div class="bg-[var(--paper)] border border-[var(--rule)] p-6 md:p-8">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--sport)]">04</div>
+        <div class="grotesk-h text-2xl md:text-3xl mt-4">Improve</div>
+        <p class="mt-3 text-sm text-[var(--ink)]/70 leading-relaxed">Personalized feedback, targeted sessions, and a development roadmap that doesn't reset every week.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Studio product hero ──────────────────────────────────────────── -->
+<section class="py-20 md:py-32 border-b border-[var(--rule)] relative">
+  <div class="max-w-7xl mx-auto px-5 md:px-10 grid md:grid-cols-12 gap-6 md:gap-12 items-center">
+    <div class="md:col-span-7 relative">
+      <img src="images/mavio-studio-01.jpg" alt="Mavio production unit on cream seamless backdrop, Apple-product-style studio shot" class="w-full block rounded-sm">
+      <span class="ph-tag">Future shoot · production unit</span>
+    </div>
+    <div class="md:col-span-5">
+      <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--sport)] mb-6 reveal">Mavio · production form</div>
+      <h2 class="display-l text-[clamp(2rem,4.6vw,3.4rem)] mb-6 reveal">Looks the way it works.</h2>
+      <p class="text-[var(--ink)]/75 leading-relaxed reveal">Matte-white injection-molded shell. Black machined base. One illuminated power-state pilot. The industrial design is the spec sheet, made physical — no plastic-tennis-toy energy, no logo decals, no bullshit.</p>
+      <div class="mt-8 grid grid-cols-2 gap-4 mono text-[10px] uppercase tracking-[0.22em] text-[var(--ink)]/55">
+        <div>
+          <div class="text-[var(--ink)] grotesk-h text-lg normal-case tracking-normal">Matte injection-mold</div>
+          <div class="mt-1">Shell · BPA-free polymer</div>
+        </div>
+        <div>
+          <div class="text-[var(--ink)] grotesk-h text-lg normal-case tracking-normal">CNC anodized base</div>
+          <div class="mt-1">Aluminum · brushed black</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Real prototype receipts ──────────────────────────────────────── -->
+<section id="progress" class="py-20 md:py-32 border-b border-[var(--rule)]">
+  <div class="max-w-7xl mx-auto px-5 md:px-10">
+    <div class="grid md:grid-cols-12 gap-6 mb-12">
+      <div class="md:col-span-3">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--sport)] reveal">Receipts · 2025</div>
+      </div>
+      <div class="md:col-span-9">
+        <h2 class="display-l text-[clamp(2rem,5vw,3.6rem)] reveal">Three field tests. One redesign. Public.</h2>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 md:gap-8 items-start">
+      <div class="relative">
+        <img src="images/first_prototype.jpeg" alt="The first Mavio prototype on a navy hardcourt, exposed wires, white plastic frame" class="w-full block rounded-sm">
+        <div class="absolute bottom-4 left-4 mono text-[10px] uppercase tracking-[0.22em] text-[var(--paper)] bg-[var(--ink)]/80 px-2.5 py-1.5">Real · prototype 01 · field test 01</div>
+      </div>
+      <div class="space-y-8">
+        <article class="border-b border-[var(--rule)] pb-8">
+          <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--sport)]">Jun 23 · 2025</div>
+          <h3 class="grotesk-h text-2xl mt-3">First field test — 10–80 MPH validated</h3>
+          <p class="mt-3 text-[var(--ink)]/70 leading-relaxed">Dual brushless motor architecture confirmed. Servo-controlled oscillation working. Spin control across all four modes (flat / topspin / backspin / slice) hit specs in the first session.</p>
+        </article>
+        <article class="border-b border-[var(--rule)] pb-8">
+          <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--sport)]">Jul 22 · 2025</div>
+          <h3 class="grotesk-h text-2xl mt-3">Bye Rallie, Hello Mavio</h3>
+          <p class="mt-3 text-[var(--ink)]/70 leading-relaxed">Original name was already taken. New name picked with input from beta members and community. Same hardware, same ambition.</p>
+        </article>
+        <article>
+          <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--sport)]">Field test 03</div>
+          <h3 class="grotesk-h text-2xl mt-3">New launch wheels + first AI integration</h3>
+          <p class="mt-3 text-[var(--ink)]/70 leading-relaxed">PU wheels swapped for a more durable solution after expected wear. First time machine and AI app were tested together end-to-end.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="mt-10">
+      <a href="https://www.mavio.ai/updates" class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--sport)] hover:underline underline-offset-4">All updates →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Team ─────────────────────────────────────────────────────────── -->
+<section class="py-20 md:py-32 border-b border-[var(--rule)] bg-[var(--chalk)]">
+  <div class="max-w-7xl mx-auto px-5 md:px-10">
+    <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--sport)] mb-10 reveal">Team</div>
+    <div class="grid md:grid-cols-2 gap-6 md:gap-12">
+      <div>
+        <div class="grotesk-h text-3xl md:text-4xl">Sophie Luo</div>
+        <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--ink)]/55 mt-2">Founder · CEO</div>
+        <p class="mt-5 text-[var(--ink)]/75 leading-relaxed">Computer science, UPenn. Previously led product at an AI + AR-glasses startup that became a unicorn — taking hardware from prototype to mass production with Foxconn and Flex. Started Mavio alone in March 2025 because she was tired of bad tennis training.</p>
+      </div>
+      <div>
+        <div class="grotesk-h text-3xl md:text-4xl">Ray Shen</div>
+        <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--ink)]/55 mt-2">Hardware & Embedded Systems</div>
+        <p class="mt-5 text-[var(--ink)]/75 leading-relaxed">Twenty years of embedded systems. The reason the second wheel design didn't fail. Lead on motor control, sensor fusion, and the firmware stack that runs the whole loop.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Beta CTA ─────────────────────────────────────────────────────── -->
+<section id="beta" class="py-24 md:py-40 border-b border-[var(--rule)] relative overflow-hidden">
+  <div class="absolute crosshair top-12 left-12"></div>
+  <div class="absolute crosshair top-12 right-12"></div>
+  <div class="absolute crosshair bottom-12 left-12"></div>
+  <div class="absolute crosshair bottom-12 right-12"></div>
+
+  <div class="max-w-5xl mx-auto px-5 md:px-10 text-center">
+    <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--sport)] mb-8 reveal">Beta · Open · Q3 2026 Kickstarter</div>
+    <h2 class="display-xl text-[clamp(2.6rem,8vw,6rem)] reveal">Reserve your unit.</h2>
+    <p class="mt-8 max-w-2xl mx-auto text-lg md:text-2xl text-[var(--ink)]/75 leading-snug reveal">
+      Beta members shape the launch. Early reservation, founder access, first ship. No pricing yet — that's part of the conversation.
+    </p>
+
+    <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 reveal">
+      <a href="https://www.mavio.ai/survey" class="px-8 py-4 bg-[var(--ink)] text-[var(--paper)] mono text-[10px] uppercase tracking-[0.25em] hover:bg-[var(--sport)] transition">Take the survey · Win $100</a>
+      <a href="https://www.mavio.ai/" class="px-8 py-4 border border-[var(--ink)] text-[var(--ink)] mono text-[10px] uppercase tracking-[0.25em] hover:bg-[var(--ink)] hover:text-[var(--paper)] transition">Join the waitlist</a>
+    </div>
+
+    <div class="mt-12 mono text-[10px] uppercase tracking-[0.22em] text-[var(--ink)]/55">
+      hello@mavio.ai · Redwood City, CA · @hellomavio
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer · oversized wordmark ──────────────────────────────────── -->
+<footer class="bg-[var(--ink)] text-[var(--paper)] pt-16 md:pt-24 pb-8 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-5 md:px-10">
+    <div class="grid md:grid-cols-12 gap-10 mb-16 md:mb-24">
+      <div class="md:col-span-5">
+        <div class="grotesk-h text-2xl">mavıo<span class="text-[var(--sport)]">.</span></div>
+        <p class="mt-5 text-[var(--paper)]/65 leading-relaxed max-w-md">Tennis meets real AI. Hardware + software, designed in Redwood City.</p>
+      </div>
+      <div class="md:col-span-3">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--paper)]/45 mb-4">Brand</div>
+        <ul class="space-y-2 text-sm text-[var(--paper)]/80">
+          <li><a href="https://www.mavio.ai/brand-story" class="hover:text-[var(--sport)] transition">About</a></li>
+          <li><a href="https://www.mavio.ai/updates" class="hover:text-[var(--sport)] transition">Updates</a></li>
+          <li><a href="https://www.mavio.ai/faq" class="hover:text-[var(--sport)] transition">FAQ</a></li>
+          <li><a href="https://www.mavio.ai/contact" class="hover:text-[var(--sport)] transition">Contact</a></li>
+        </ul>
+      </div>
+      <div class="md:col-span-4">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--paper)]/45 mb-4">Follow</div>
+        <ul class="space-y-2 text-sm text-[var(--paper)]/80">
+          <li><a href="https://x.com/hellomavio" class="hover:text-[var(--sport)] transition">X · @hellomavio</a></li>
+          <li><a href="https://www.tiktok.com/@hellomavio" class="hover:text-[var(--sport)] transition">TikTok · @hellomavio</a></li>
+          <li><a href="https://www.youtube.com/channel/UCe2iDqdEYGT3k_F4HtWyajA" class="hover:text-[var(--sport)] transition">YouTube</a></li>
+          <li><a href="https://www.linkedin.com/company/hellomavio" class="hover:text-[var(--sport)] transition">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Oversized typographic wordmark -->
+    <div class="display-xl text-[clamp(7rem,28vw,22rem)] leading-[0.85] -tracking-[0.05em] mt-8 select-none flex items-baseline">
+      <span>mavıo</span><span class="text-[var(--sport)]">.</span>
+    </div>
+
+    <div class="border-t border-[var(--paper)]/15 mt-12 pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--paper)]/45">© 2026 Mavio · 303 Twin Dolphin Drive · Redwood City CA 94065</div>
+      <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--paper)]/45">Direction Specimen · Banana Bytes mockup v1</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Banana Bytes credit -->
+<div style="text-align:center; padding:1.5rem 1rem; font-size:0.7rem; letter-spacing:0.05em; opacity:0.45; background:#0A0A0A; color:#F4F4F1;">
+  <a href="https://instagram.com/BananaCares" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+    Mockup created by Banana Bytes
+  </a>
+</div>
+
+<script>
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>

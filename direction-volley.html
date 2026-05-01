@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mavio — A coach that listens. Tennis training, finally on your side.</title>
+<meta name="description" content="The first AI tennis coach that adapts mid-rally. Tracks your stance, swing, and trajectory in real time. Built in Redwood City. Beta open. Kickstarter Q3 2026.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mavio">
+<meta property="og:title" content="Mavio — A coach that listens. Tennis training, finally on your side.">
+<meta property="og:description" content="The first AI tennis coach that adapts mid-rally. Real-time stance, swing, and trajectory tracking. Beta open.">
+<meta property="og:url" content="https://banana-daddy.github.io/mavio-ai/direction-volley.html">
+<meta property="og:image" content="https://banana-daddy.github.io/mavio-ai/images/og-direction-volley.jpg">
+<meta property="og:image:secure_url" content="https://banana-daddy.github.io/mavio-ai/images/og-direction-volley.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A neon-yellow tennis ball resting on the chalk-white baseline of a navy hardcourt at sunrise.">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@hellomavio">
+<meta name="twitter:title" content="Mavio — A coach that listens. Tennis training, finally on your side.">
+<meta name="twitter:description" content="The first AI tennis coach that adapts mid-rally. Real-time stance, swing, and trajectory tracking. Beta open.">
+<meta name="twitter:image" content="https://banana-daddy.github.io/mavio-ai/images/og-direction-volley.jpg">
+<meta name="twitter:image:alt" content="Yellow tennis ball on a navy hardcourt baseline at sunrise.">
+
+<meta name="theme-color" content="#0B1F3A">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" sizes="512x512" href="images/favicon-512.png">
+<link rel="canonical" href="https://banana-daddy.github.io/mavio-ai/direction-volley.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  :root{
+    --navy:#0B1F3A;
+    --court:#0F2849;
+    --bone:#FAFAF7;
+    --green:#C8E812;
+    --green-soft:#A8C812;
+    --baseline:#1F4FA0;
+    --slate:#5C6470;
+    --rule:rgba(250,250,247,0.10);
+  }
+  *{ -webkit-font-smoothing:antialiased; }
+  html, body { background:var(--navy); color:var(--bone); font-family:'Outfit', system-ui, sans-serif; line-height:1.5; }
+  .mono{ font-family:'JetBrains Mono', monospace; font-feature-settings:'tnum'; }
+
+  .display-xl{ font-family:'Outfit', sans-serif; font-weight:700; line-height:0.92; letter-spacing:-0.045em; }
+  .display-l{ font-family:'Outfit', sans-serif; font-weight:600; line-height:0.95; letter-spacing:-0.03em; }
+  .display-m{ font-family:'Outfit', sans-serif; font-weight:600; line-height:1.05; letter-spacing:-0.02em; }
+
+  .court-lines{
+    background-image:
+      linear-gradient(rgba(250,250,247,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(250,250,247,0.06) 1px, transparent 1px);
+    background-size:96px 96px;
+  }
+
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  .echo-dot{ position:relative; display:inline-flex; }
+  .echo-dot::before, .echo-dot::after{
+    content:""; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    border-radius:9999px; border:1.5px solid var(--green); pointer-events:none;
+  }
+  .echo-dot::before{ width:200%; height:200%; opacity:0.5; }
+  .echo-dot::after{ width:300%; height:300%; opacity:0.25; }
+
+  .ph-tag{
+    position:absolute; top:10px; left:10px;
+    font-family:'JetBrains Mono', monospace; font-size:9px; letter-spacing:0.18em;
+    color:#0B1F3A; text-transform:uppercase;
+    background:#C8E812; padding:4px 8px; border-radius:2px;
+  }
+
+  ::selection{ background:var(--green); color:var(--navy); }
+
+  /* Subtle pulse animation for echo dot */
+  @keyframes pulse-ring {
+    0%   { transform: translate(-50%,-50%) scale(1);   opacity: 0.55; }
+    70%  { transform: translate(-50%,-50%) scale(1.6); opacity: 0; }
+    100% { transform: translate(-50%,-50%) scale(1.6); opacity: 0; }
+  }
+  .pulse-anim::before { animation: pulse-ring 2.6s ease-out infinite; }
+  @media (prefers-reduced-motion: reduce) { .pulse-anim::before { animation: none; } }
+</style>
+</head>
+<body>
+
+<!-- ── Nav ─────────────────────────────────────────────────────────── -->
+<nav class="fixed top-0 inset-x-0 z-50 bg-[var(--navy)]/80 backdrop-blur-md border-b border-[var(--rule)]">
+  <div class="max-w-7xl mx-auto px-5 md:px-10 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2.5">
+      <!-- Echo v2 mark: green tennis-ball pulse -->
+      <svg viewBox="0 0 40 40" class="w-6 h-6">
+        <circle cx="20" cy="20" r="16" fill="none" stroke="#C8E812" stroke-width="0.7" opacity="0.3"/>
+        <circle cx="20" cy="20" r="11" fill="none" stroke="#C8E812" stroke-width="1" opacity="0.55"/>
+        <circle cx="20" cy="20" r="6" fill="#C8E812"/>
+        <path d="M 15.5 18.5 Q 20 23.5 24.5 18.5" fill="none" stroke="#0B1F3A" stroke-width="0.8" opacity="0.55"/>
+      </svg>
+      <span class="display-m text-xl">mavio</span>
+    </a>
+    <div class="hidden md:flex items-center gap-7 mono text-[10px] uppercase tracking-[0.22em] text-[var(--bone)]/70">
+      <a href="#how" class="hover:text-[var(--green)] transition">How</a>
+      <a href="#stats" class="hover:text-[var(--green)] transition">Live stats</a>
+      <a href="#story" class="hover:text-[var(--green)] transition">Story</a>
+      <a href="#beta" class="hover:text-[var(--green)] transition">Beta</a>
+    </div>
+    <a href="#beta" class="mono text-[10px] uppercase tracking-[0.22em] px-4 py-2 bg-[var(--green)] text-[var(--navy)] hover:bg-[var(--bone)] transition">Get on court</a>
+  </div>
+</nav>
+
+<!-- ── Hero ────────────────────────────────────────────────────────── -->
+<header class="relative h-[100svh] min-h-[640px] overflow-hidden">
+  <img src="images/C-hero-02.jpg" alt="A yellow tennis ball resting on a navy hardcourt baseline at sunrise" class="absolute inset-0 w-full h-full object-cover" loading="eager">
+  <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(11,31,58,0.35) 0%, rgba(11,31,58,0.45) 60%, rgba(11,31,58,0.95) 100%);"></div>
+
+  <div class="relative z-10 h-full max-w-7xl mx-auto px-5 md:px-10 flex flex-col justify-end pb-16 md:pb-24">
+    <div class="mono text-[11px] uppercase tracking-[0.22em] text-[var(--bone)]/70 mb-6 reveal flex items-center gap-3">
+      <span class="echo-dot pulse-anim"><span class="block w-2 h-2 rounded-full bg-[var(--green)]"></span></span>
+      <span>Beta · live · Kickstarter Q3 2026 · Redwood City</span>
+    </div>
+    <h1 class="display-xl text-[clamp(3.6rem,12vw,10rem)] max-w-5xl reveal">
+      A coach that <span class="text-[var(--green)]">listens.</span>
+    </h1>
+    <p class="text-xl md:text-2xl mt-6 max-w-xl text-[var(--bone)]/80 reveal">
+      Mavio reads your stance, your swing, your trajectory — every shot. Then adapts the next one to make you better. Tennis training, finally on your side.
+    </p>
+
+    <div class="mt-12 flex flex-wrap gap-3 reveal">
+      <a href="#beta" class="px-7 py-3.5 bg-[var(--green)] text-[var(--navy)] mono text-[10px] uppercase tracking-[0.22em] hover:bg-[var(--bone)] transition">Reserve · 100 spots</a>
+      <a href="#how" class="px-7 py-3.5 border border-[var(--bone)]/35 text-[var(--bone)] mono text-[10px] uppercase tracking-[0.22em] hover:border-[var(--green)] hover:text-[var(--green)] transition">See how it works</a>
+    </div>
+  </div>
+
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 mono text-[10px] uppercase tracking-[0.3em] text-[var(--bone)]/40 z-10">
+    scroll →
+  </div>
+</header>
+
+<!-- ── Live stats dashboard ─────────────────────────────────────────── -->
+<section id="stats" class="py-20 md:py-32 border-t border-[var(--rule)] court-lines">
+  <div class="max-w-7xl mx-auto px-5 md:px-10">
+    <div class="grid md:grid-cols-12 gap-6 mb-12 md:mb-16">
+      <div class="md:col-span-4">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--green)] mb-3 reveal">Live during your session</div>
+        <h2 class="display-l text-[clamp(2.2rem,5vw,4rem)] reveal">Every shot, on the record.</h2>
+      </div>
+      <div class="md:col-span-8 flex items-end">
+        <p class="text-lg md:text-xl text-[var(--bone)]/75 max-w-2xl reveal">Mavio runs the numbers in real time on your phone. Not a coaching app — your coach. With receipts.</p>
+      </div>
+    </div>
+
+    <!-- Bento stats grid -->
+    <div class="grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-4 auto-rows-[minmax(120px,auto)]">
+      <!-- Big stat: shots -->
+      <div class="col-span-2 md:col-span-2 md:row-span-2 bg-[var(--green)] text-[var(--navy)] p-6 md:p-8 flex flex-col justify-between min-h-[260px] md:min-h-[340px]">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--navy)]/65">Shots this session</div>
+        <div>
+          <div class="display-xl text-[clamp(4.5rem,10vw,7.5rem)] tabular-nums">847</div>
+          <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--navy)]/60 mt-2">+ 32% vs last week</div>
+        </div>
+      </div>
+
+      <!-- Stat: avg speed -->
+      <div class="col-span-1 md:col-span-2 bg-[var(--court)] p-5 md:p-7 flex flex-col justify-between border border-[var(--rule)] min-h-[120px] md:min-h-[160px]">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--bone)]/55">Avg ball speed</div>
+        <div class="display-l text-[clamp(2.2rem,4.5vw,3.4rem)] text-[var(--bone)]">62 <span class="mono text-sm text-[var(--bone)]/55 ml-1">MPH</span></div>
+      </div>
+
+      <!-- Stat: forehand accuracy -->
+      <div class="col-span-1 md:col-span-2 bg-[var(--court)] p-5 md:p-7 flex flex-col justify-between border border-[var(--rule)] min-h-[120px] md:min-h-[160px]">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--bone)]/55">FH accuracy</div>
+        <div class="display-l text-[clamp(2.2rem,4.5vw,3.4rem)] text-[var(--green)]">87<span class="text-2xl">%</span></div>
+      </div>
+
+      <!-- Heatmap placeholder -->
+      <div class="col-span-2 md:col-span-4 bg-[var(--court)] p-5 md:p-7 border border-[var(--rule)] min-h-[160px] md:min-h-[180px] relative">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--bone)]/55 mb-3">Court heatmap · last 100 shots</div>
+        <!-- Simple court heatmap SVG -->
+        <svg viewBox="0 0 400 140" class="w-full h-[100px] md:h-[120px]" preserveAspectRatio="xMidYMid meet">
+          <rect x="6" y="6" width="388" height="128" fill="none" stroke="rgba(250,250,247,0.35)" stroke-width="0.8"/>
+          <line x1="200" y1="6" x2="200" y2="134" stroke="rgba(250,250,247,0.25)" stroke-width="0.8" stroke-dasharray="3 3"/>
+          <line x1="6" y1="40" x2="394" y2="40" stroke="rgba(250,250,247,0.2)" stroke-width="0.5"/>
+          <line x1="6" y1="100" x2="394" y2="100" stroke="rgba(250,250,247,0.2)" stroke-width="0.5"/>
+          <!-- Heatmap dots -->
+          <circle cx="80"  cy="50" r="14" fill="#C8E812" opacity="0.18"/>
+          <circle cx="100" cy="60" r="20" fill="#C8E812" opacity="0.32"/>
+          <circle cx="120" cy="70" r="9"  fill="#C8E812" opacity="0.55"/>
+          <circle cx="280" cy="55" r="16" fill="#C8E812" opacity="0.22"/>
+          <circle cx="310" cy="68" r="11" fill="#C8E812" opacity="0.38"/>
+          <circle cx="335" cy="80" r="6"  fill="#C8E812" opacity="0.7"/>
+          <circle cx="180" cy="105" r="9" fill="#C8E812" opacity="0.4"/>
+          <circle cx="220" cy="95"  r="14" fill="#C8E812" opacity="0.28"/>
+        </svg>
+      </div>
+
+      <!-- Stat: spin -->
+      <div class="col-span-1 md:col-span-2 bg-[var(--court)] p-5 md:p-7 border border-[var(--rule)] min-h-[120px] md:min-h-[160px] flex flex-col justify-between">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--bone)]/55">Top spin RPM</div>
+        <div class="display-l text-[clamp(2.2rem,4.5vw,3.4rem)] text-[var(--bone)]">2,140</div>
+      </div>
+
+      <!-- Stat: streak -->
+      <div class="col-span-1 md:col-span-2 bg-[var(--court)] p-5 md:p-7 border border-[var(--rule)] min-h-[120px] md:min-h-[160px] flex flex-col justify-between">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--bone)]/55">Current rally streak</div>
+        <div class="display-l text-[clamp(2.2rem,4.5vw,3.4rem)] text-[var(--green)]">17</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 4-step OBSERVE/ANALYZE/ACT/SUMMARIZE ─────────────────────────── -->
+<section id="how" class="py-20 md:py-32 border-t border-[var(--rule)]">
+  <div class="max-w-7xl mx-auto px-5 md:px-10">
+    <div class="grid md:grid-cols-12 gap-6 mb-16 md:mb-20">
+      <div class="md:col-span-3">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--green)] reveal">The loop · every shot</div>
+      </div>
+      <div class="md:col-span-9">
+        <h2 class="display-l text-[clamp(2.4rem,5.5vw,4.6rem)] reveal">Four moves. Forever.</h2>
+        <p class="text-lg md:text-xl mt-6 max-w-2xl text-[var(--bone)]/70 reveal">A coach's job, automated honestly. Not a chatbot. Not a marketing line.</p>
+      </div>
+    </div>
+
+    <!-- 4 step cards in 2x2 grid -->
+    <div class="grid md:grid-cols-2 gap-3 md:gap-4">
+
+      <article class="relative bg-[var(--court)] border border-[var(--rule)] overflow-hidden group hover:border-[var(--green)]/50 transition">
+        <div class="aspect-[16/10] relative overflow-hidden">
+          <img src="images/ai-overlay-01.jpg" alt="Player silhouette overlaid with motion-tracking AI joint markers" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+          <span class="ph-tag">Future shoot · live overlay</span>
+        </div>
+        <div class="p-6 md:p-8">
+          <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--green)]">01 · Observes</div>
+          <h3 class="display-m text-2xl md:text-3xl mt-3 leading-tight">Computer vision, on the body and the ball.</h3>
+          <p class="text-[var(--bone)]/70 mt-4 leading-relaxed">Real-time tracking of stance, swing mechanics, footwork, and ball trajectory. No wearables. No setup.</p>
+        </div>
+      </article>
+
+      <article class="relative bg-[var(--court)] border border-[var(--rule)] overflow-hidden group hover:border-[var(--green)]/50 transition">
+        <div class="aspect-[16/10] relative overflow-hidden">
+          <img src="images/ai-trajectory-01.jpg" alt="Yellow vector arc traced through the air showing predicted ball path" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+          <span class="ph-tag">Future shoot · trajectory data</span>
+        </div>
+        <div class="p-6 md:p-8">
+          <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--green)]">02 · Analyzes</div>
+          <h3 class="display-m text-2xl md:text-3xl mt-3 leading-tight">Pattern recognition, not vanity metrics.</h3>
+          <p class="text-[var(--bone)]/70 mt-4 leading-relaxed">Where you miss. Why you miss. Which shot has the lowest consistency on which day. Mavio names it.</p>
+        </div>
+      </article>
+
+      <article class="relative bg-[var(--court)] border border-[var(--rule)] overflow-hidden group hover:border-[var(--green)]/50 transition">
+        <div class="aspect-[16/10] relative overflow-hidden bg-[var(--navy)]">
+          <img src="images/field-test.gif" alt="Field test footage of the Mavio machine in action" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+          <span class="ph-tag">Real footage · field test 03</span>
+        </div>
+        <div class="p-6 md:p-8">
+          <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--green)]">03 · Acts</div>
+          <h3 class="display-m text-2xl md:text-3xl mt-3 leading-tight">The next ball is harder.</h3>
+          <p class="text-[var(--bone)]/70 mt-4 leading-relaxed">Adaptive drills with progressive difficulty. Speed, spin, and placement adjust mid-rally. Mavio plays the game with you, not at you.</p>
+        </div>
+      </article>
+
+      <article class="relative bg-[var(--court)] border border-[var(--rule)] overflow-hidden group hover:border-[var(--green)]/50 transition">
+        <div class="aspect-[16/10] relative overflow-hidden">
+          <img src="images/app-dashboard-01.jpg" alt="Dark-mode mobile dashboard with neon-yellow analytics" class="absolute inset-0 w-full h-full object-cover object-center" loading="lazy">
+          <span class="ph-tag">Future shoot · production app</span>
+        </div>
+        <div class="p-6 md:p-8">
+          <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--green)]">04 · Summarizes</div>
+          <h3 class="display-m text-2xl md:text-3xl mt-3 leading-tight">A real practice arc. Week to year.</h3>
+          <p class="text-[var(--bone)]/70 mt-4 leading-relaxed">Session stats, progress reports, a development roadmap. Each session builds on the last. No reset.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Detail body strip ────────────────────────────────────────────── -->
+<section class="border-t border-[var(--rule)]">
+  <div class="grid md:grid-cols-3 gap-0">
+    <div class="relative aspect-square">
+      <img src="images/player-feet-01.jpg" alt="Athlete's feet in ready stance on a navy hardcourt baseline" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+      <span class="ph-tag">Future shoot · ready stance</span>
+      <div class="absolute bottom-4 left-4 right-4 mono text-[10px] uppercase tracking-[0.22em] text-[var(--bone)]/85">Footwork · tracked every shot</div>
+    </div>
+    <div class="relative aspect-square">
+      <img src="images/player-grip-01.jpg" alt="Hand wrapped around the textured grip of a tennis racquet" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+      <span class="ph-tag">Future shoot · contact</span>
+      <div class="absolute bottom-4 left-4 right-4 mono text-[10px] uppercase tracking-[0.22em] text-[var(--bone)]/85">Grip · contact-point consistency</div>
+    </div>
+    <div class="relative aspect-square">
+      <img src="images/player-silhouette-01.jpg" alt="Player silhouette mid-forehand against a sunset sky" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+      <span class="ph-tag">Future shoot · campaign hero</span>
+      <div class="absolute bottom-4 left-4 right-4 mono text-[10px] uppercase tracking-[0.22em] text-[var(--bone)]/85">Form · stride to extension</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Founder · short version ─────────────────────────────────────── -->
+<section id="story" class="py-20 md:py-32 border-t border-[var(--rule)] court-lines">
+  <div class="max-w-7xl mx-auto px-5 md:px-10 grid md:grid-cols-12 gap-6 md:gap-12 items-start">
+    <div class="md:col-span-5 relative aspect-[4/5] md:aspect-[3/4] overflow-hidden">
+      <img src="images/founder-window-01.jpg" alt="The founder examining a robotics component in industrial-window light" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+      <span class="ph-tag">Future shoot · Sophie portrait</span>
+    </div>
+
+    <div class="md:col-span-7 md:pt-6">
+      <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--green)] mb-6 reveal">From the founder</div>
+      <h2 class="display-l text-[clamp(2.2rem,5vw,4rem)] reveal mb-8">A solo project. A 3D printer. A tennis problem.</h2>
+
+      <blockquote class="reveal mb-10">
+        <p class="text-xl md:text-2xl leading-snug text-[var(--bone)]/90 italic">
+          "Coaching was crazy expensive. Hitting partners flaked. And ball machines? The ones I tried felt like relics from the 90s."
+        </p>
+        <div class="mt-5 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-[var(--court)] border border-[var(--green)]/40 flex items-center justify-center text-sm font-medium text-[var(--green)]">SL</div>
+          <div>
+            <div class="text-sm font-medium">Sophie Luo · Founder</div>
+            <div class="mono text-[10px] uppercase tracking-[0.2em] text-[var(--bone)]/55 mt-0.5">UPenn CS · ex-AR-glasses unicorn</div>
+          </div>
+        </div>
+      </blockquote>
+
+      <div class="space-y-4 text-[var(--bone)]/75 leading-relaxed reveal">
+        <p>Mavio started in March 2025. Sophie hacked together early prototypes, wrote the first computer-vision code, and 3D-printed brackets on her living room floor. She'd just finished leading product at an AI + AR-glasses startup that became a unicorn.</p>
+        <p>Six months later: a hardware lead with twenty years of embedded systems (Ray Shen), three field tests, a redesigned launch wheel, and the first integration between machine and AI app — under way as you read this.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Mavio on court ───────────────────────────────────────────────── -->
+<section class="relative">
+  <div class="aspect-video md:aspect-[21/9] relative overflow-hidden">
+    <img src="images/mavio-court-01.jpg" alt="A sleek matte-white production Mavio at the baseline of a navy hardcourt at golden hour" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+    <span class="ph-tag">Future shoot · campaign hero</span>
+    <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(11,31,58,0.0) 50%, rgba(11,31,58,0.85) 100%);"></div>
+    <div class="absolute bottom-0 inset-x-0 max-w-7xl mx-auto px-5 md:px-10 pb-10 md:pb-16">
+      <div class="max-w-2xl">
+        <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--green)] mb-4">On the court · sunrise session</div>
+        <p class="display-m text-2xl md:text-4xl text-[var(--bone)] leading-tight">Single-hand carry. Trunk-friendly. Set up in under three minutes — then it does the rest.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Quick specs ──────────────────────────────────────────────────── -->
+<section class="py-16 md:py-24 border-t border-[var(--rule)] bg-[var(--court)]">
+  <div class="max-w-7xl mx-auto px-5 md:px-10">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-y-10 gap-x-6">
+      <div>
+        <div class="display-l text-[clamp(2rem,4vw,3rem)]">30<span class="text-[var(--green)] text-lg ml-1">lb</span></div>
+        <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--bone)]/55 mt-3">Portable</div>
+      </div>
+      <div>
+        <div class="display-l text-[clamp(2rem,4vw,3rem)]">150</div>
+        <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--bone)]/55 mt-3">Ball capacity</div>
+      </div>
+      <div>
+        <div class="display-l text-[clamp(2rem,4vw,3rem)]">10–80</div>
+        <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--bone)]/55 mt-3">MPH speed range</div>
+      </div>
+      <div>
+        <div class="display-l text-[clamp(2rem,4vw,3rem)]">±45°</div>
+        <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--bone)]/55 mt-3">Horizontal sweep</div>
+      </div>
+      <div class="col-span-2 md:col-span-1">
+        <div class="display-l text-[clamp(1.6rem,3vw,2.2rem)] leading-tight">4 spin types</div>
+        <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--bone)]/55 mt-3">Flat · Topspin · Backspin · Slice</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Beta CTA ─────────────────────────────────────────────────────── -->
+<section id="beta" class="py-24 md:py-40 border-t border-[var(--rule)] court-lines relative overflow-hidden">
+  <div class="absolute inset-0 opacity-[0.06]" style="background:radial-gradient(60% 80% at 50% 0%, var(--green), transparent 70%);"></div>
+
+  <div class="relative max-w-5xl mx-auto px-5 md:px-10 text-center">
+    <div class="mono text-[10px] uppercase tracking-[0.25em] text-[var(--green)] mb-8 reveal flex items-center justify-center gap-3">
+      <span class="echo-dot pulse-anim"><span class="block w-2 h-2 rounded-full bg-[var(--green)]"></span></span>
+      <span>Beta · Open · 100 spots</span>
+    </div>
+    <h2 class="display-xl text-[clamp(2.6rem,9vw,7rem)] reveal">Get on court.</h2>
+    <p class="mt-8 max-w-2xl mx-auto text-lg md:text-2xl text-[var(--bone)]/80 leading-snug reveal">
+      The Kickstarter goes live in a few months. Beta members shape the launch and get the first units. Take the survey to be considered.
+    </p>
+
+    <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 reveal">
+      <a href="https://www.mavio.ai/survey" class="px-8 py-4 bg-[var(--green)] text-[var(--navy)] mono text-[10px] uppercase tracking-[0.25em] hover:bg-[var(--bone)] transition">Take the survey · Win $100</a>
+      <a href="https://www.mavio.ai/" class="px-8 py-4 border border-[var(--bone)]/35 text-[var(--bone)] mono text-[10px] uppercase tracking-[0.25em] hover:border-[var(--green)] hover:text-[var(--green)] transition">Join the waitlist</a>
+    </div>
+
+    <div class="mt-12 mono text-[10px] uppercase tracking-[0.22em] text-[var(--bone)]/45">
+      hello@mavio.ai · Redwood City, CA · @hellomavio
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ───────────────────────────────────────────────────────── -->
+<footer class="border-t border-[var(--rule)] bg-[var(--navy)] py-16">
+  <div class="max-w-7xl mx-auto px-5 md:px-10">
+    <div class="grid md:grid-cols-12 gap-10">
+      <div class="md:col-span-5">
+        <div class="flex items-center gap-2.5">
+          <svg viewBox="0 0 40 40" class="w-7 h-7">
+            <circle cx="20" cy="20" r="16" fill="none" stroke="#C8E812" stroke-width="0.7" opacity="0.3"/>
+            <circle cx="20" cy="20" r="11" fill="none" stroke="#C8E812" stroke-width="1" opacity="0.55"/>
+            <circle cx="20" cy="20" r="6" fill="#C8E812"/>
+            <path d="M 15.5 18.5 Q 20 23.5 24.5 18.5" fill="none" stroke="#0B1F3A" stroke-width="0.8" opacity="0.55"/>
+          </svg>
+          <span class="display-m text-2xl">mavio</span>
+        </div>
+        <p class="mt-5 text-lg text-[var(--bone)]/70 max-w-md leading-snug">Tennis meets real AI. Hardware + software, designed in Redwood City.</p>
+      </div>
+      <div class="md:col-span-3">
+        <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--bone)]/45 mb-4">Brand</div>
+        <ul class="space-y-2.5 text-sm text-[var(--bone)]/80">
+          <li><a href="https://www.mavio.ai/brand-story" class="hover:text-[var(--green)] transition">About</a></li>
+          <li><a href="https://www.mavio.ai/updates" class="hover:text-[var(--green)] transition">Updates</a></li>
+          <li><a href="https://www.mavio.ai/faq" class="hover:text-[var(--green)] transition">FAQ</a></li>
+          <li><a href="https://www.mavio.ai/contact" class="hover:text-[var(--green)] transition">Contact</a></li>
+        </ul>
+      </div>
+      <div class="md:col-span-4">
+        <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--bone)]/45 mb-4">Follow</div>
+        <ul class="space-y-2.5 text-sm text-[var(--bone)]/80">
+          <li><a href="https://x.com/hellomavio" class="hover:text-[var(--green)] transition">X · @hellomavio</a></li>
+          <li><a href="https://www.tiktok.com/@hellomavio" class="hover:text-[var(--green)] transition">TikTok · @hellomavio</a></li>
+          <li><a href="https://www.youtube.com/channel/UCe2iDqdEYGT3k_F4HtWyajA" class="hover:text-[var(--green)] transition">YouTube</a></li>
+          <li><a href="https://www.linkedin.com/company/hellomavio" class="hover:text-[var(--green)] transition">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-16 pt-8 border-t border-[var(--rule)] flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--bone)]/45">© 2026 Mavio · 303 Twin Dolphin Drive · Redwood City CA 94065</div>
+      <div class="mono text-[10px] uppercase tracking-[0.22em] text-[var(--bone)]/45">Direction Volley · Banana Bytes mockup v1</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Banana Bytes credit -->
+<div style="text-align:center; padding:1.5rem 1rem; font-size:0.7rem; letter-spacing:0.05em; opacity:0.45; background:#0B1F3A; color:#FAFAF7;">
+  <a href="https://instagram.com/BananaCares" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+    Mockup created by Banana Bytes
+  </a>
+</div>
+
+<script>
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>
