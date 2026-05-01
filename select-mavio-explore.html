@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mavio · Exploration · Selection</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0a0a0a">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #0a0a0a;
+    --paper: #fff;
+    --use: #D4F542;
+    --bench: #C8552B;
+    --kill: #FF5A1F;
+    --rule: rgba(255,255,255,0.12);
+  }
+  * { -webkit-font-smoothing: antialiased; }
+  html, body { background: var(--ink); color: #fff; font-family: 'Bricolage Grotesque', system-ui, sans-serif; }
+  .display { font-family: 'Fraunces', serif; letter-spacing: -0.015em; line-height: 0.95; font-weight: 700; }
+  .mono { font-family: 'JetBrains Mono', monospace; font-feature-settings: 'tnum'; }
+  .label { text-transform: uppercase; letter-spacing: 0.22em; font-size: 0.7rem; font-weight: 500; }
+
+  .tile { transition: transform 0.25s ease, box-shadow 0.25s ease; border: 2px solid var(--rule); }
+  .tile:hover { transform: translateY(-2px); }
+  .tile img { display: block; width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; background: #111; }
+
+  .tile[data-state="use"]   { border-color: var(--use);   box-shadow: 0 0 0 4px rgba(212,245,66,0.15); }
+  .tile[data-state="bench"] { border-color: var(--bench); box-shadow: 0 0 0 4px rgba(200,85,43,0.18); }
+  .tile[data-state="kill"]  { border-color: var(--kill);  box-shadow: 0 0 0 4px rgba(255,90,31,0.18); opacity: 0.55; }
+  .tile[data-state="kill"] img { filter: grayscale(0.85) brightness(0.65); }
+
+  .badge { display: none; position: absolute; top: 12px; left: 12px; z-index: 2; padding: 6px 10px; background: #000; color: #fff; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.16em; font-size: 11px; border: 2px solid currentColor; font-weight: 500; }
+  .tile[data-state="use"]   .badge { display: inline-block; color: var(--use); }
+  .tile[data-state="bench"] .badge { display: inline-block; color: var(--bench); }
+  .tile[data-state="kill"]  .badge { display: inline-block; color: var(--kill); }
+
+  .tag-direction { position: absolute; top: 12px; right: 12px; z-index: 2; padding: 4px 8px; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); color: #fff; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.12em; font-size: 10px; border: 1px solid rgba(255,255,255,0.18); }
+
+  .btn { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; padding: 10px 12px; border: 1px solid rgba(255,255,255,0.18); background: transparent; color: #fff; cursor: pointer; transition: all 0.2s ease; flex: 1; }
+  .btn:hover { background: rgba(255,255,255,0.06); }
+  .btn[data-active="true"][data-action="use"]    { background: var(--use); color: #000; border-color: var(--use); }
+  .btn[data-active="true"][data-action="bench"]  { background: var(--bench); color: #fff; border-color: var(--bench); }
+  .btn[data-active="true"][data-action="kill"]   { background: var(--kill); color: #fff; border-color: var(--kill); }
+
+  .filter-pill { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; padding: 8px 14px; border: 1px solid rgba(255,255,255,0.18); background: transparent; color: #fff; cursor: pointer; transition: all 0.18s ease; }
+  .filter-pill:hover { border-color: rgba(255,255,255,0.45); }
+  .filter-pill[data-active="true"] { background: #fff; color: #000; border-color: #fff; }
+
+  .footer-bar { position: sticky; bottom: 0; background: rgba(10,10,10,0.96); backdrop-filter: blur(16px); border-top: 1px solid var(--rule); }
+
+  .status-dot { width: 10px; height: 10px; border-radius: 9999px; display: inline-block; }
+  .dot-use   { background: var(--use); }
+  .dot-bench { background: var(--bench); }
+  .dot-kill  { background: var(--kill); }
+  .dot-untagged { background: rgba(255,255,255,0.25); }
+
+  ::selection { background: var(--use); color: #000; }
+
+  .tile.hidden-by-filter { display: none; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="border-b border-white/10">
+  <div class="max-w-[1500px] mx-auto px-5 md:px-10 py-6 flex items-end justify-between gap-3 flex-wrap">
+    <div>
+      <div class="mono text-[10px] uppercase tracking-[0.22em] text-white/55">Mavio · Exploration · Selection · v1</div>
+      <h1 class="display text-3xl md:text-4xl mt-2">Pick the keepers for Sophie.</h1>
+      <p class="mt-3 text-sm md:text-base text-white/65 max-w-2xl leading-snug">35 candidate assets — 30 newly generated for this build, 5 real source assets from mavio.ai. I've pre-seeded my picks; click to override. Tap <span class="mono text-white/85">USE</span> to lock into the live mockups, <span class="mono text-white/85">BENCH</span> to keep as alternates, <span class="mono text-white/85">KILL</span> to drop. Then hit <span class="mono text-white/85">Copy selections</span> and paste back.</p>
+    </div>
+    <div class="mono text-[10px] uppercase tracking-[0.18em] text-white/55 self-end">35 assets · click or 1·2·3</div>
+  </div>
+</header>
+
+<!-- Legend -->
+<section class="border-b border-white/10 py-5">
+  <div class="max-w-[1500px] mx-auto px-5 md:px-10 flex flex-wrap items-center gap-x-6 gap-y-3">
+    <div class="flex items-center gap-2 mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+      <span class="status-dot dot-use"></span> Use — goes in the build
+    </div>
+    <div class="flex items-center gap-2 mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+      <span class="status-dot dot-bench"></span> Bench — keep, may use
+    </div>
+    <div class="flex items-center gap-2 mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+      <span class="status-dot dot-kill"></span> Kill — drop it
+    </div>
+    <div class="flex items-center gap-2 mono text-[10px] uppercase tracking-[0.18em] text-white/40">
+      <span class="status-dot dot-untagged"></span> Untagged
+    </div>
+  </div>
+</section>
+
+<!-- Filters -->
+<section class="border-b border-white/10 py-4">
+  <div class="max-w-[1500px] mx-auto px-5 md:px-10 flex flex-wrap items-center gap-2">
+    <span class="mono text-[10px] uppercase tracking-[0.22em] text-white/45 mr-2">Category:</span>
+    <button class="filter-pill" data-filter="all" data-active="true">All</button>
+    <button class="filter-pill" data-filter="hero">Hero</button>
+    <button class="filter-pill" data-filter="founder">Founder</button>
+    <button class="filter-pill" data-filter="product">Product</button>
+    <button class="filter-pill" data-filter="feature">Feature · AI</button>
+    <button class="filter-pill" data-filter="atmosphere">Atmosphere</button>
+    <button class="filter-pill" data-filter="detail">Detail · Body</button>
+    <button class="filter-pill" data-filter="source">Real source</button>
+    <span class="mono text-[10px] uppercase tracking-[0.22em] text-white/45 ml-4 mr-2">Status:</span>
+    <button class="filter-pill" data-status="all" data-active="true">All</button>
+    <button class="filter-pill" data-status="untagged">Untagged</button>
+    <button class="filter-pill" data-status="use">Use</button>
+    <button class="filter-pill" data-status="bench">Bench</button>
+    <button class="filter-pill" data-status="kill">Kill</button>
+  </div>
+</section>
+
+<!-- Grid -->
+<section class="py-8 md:py-10">
+  <div class="max-w-[1500px] mx-auto px-5 md:px-10">
+    <div id="grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6"></div>
+  </div>
+</section>
+
+<!-- Action bar -->
+<div class="footer-bar py-4 md:py-5">
+  <div class="max-w-[1500px] mx-auto px-5 md:px-10 flex items-center justify-between gap-4 flex-wrap">
+    <div class="mono text-[10px] uppercase tracking-[0.18em] text-white/70 flex items-center gap-4 flex-wrap">
+      <span><span class="status-dot dot-use mr-2"></span>Use <span id="count-use" class="text-white">0</span></span>
+      <span><span class="status-dot dot-bench mr-2"></span>Bench <span id="count-bench" class="text-white">0</span></span>
+      <span><span class="status-dot dot-kill mr-2"></span>Kill <span id="count-kill" class="text-white">0</span></span>
+      <span><span class="status-dot dot-untagged mr-2"></span>Untagged <span id="count-untagged" class="text-white">0</span></span>
+    </div>
+    <div class="flex items-center gap-2 flex-wrap">
+      <button id="copy-btn" class="filter-pill">Copy selections</button>
+      <button id="reset-btn" class="filter-pill">Reset to my picks</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="fixed left-1/2 bottom-24 -translate-x-1/2 bg-white text-black px-4 py-2 mono text-[11px] uppercase tracking-[0.18em] opacity-0 transition-opacity duration-300 pointer-events-none z-50">Copied</div>
+
+<!-- Banana Bytes credit -->
+<div style="text-align:center; padding:1.5rem 1rem; font-size:0.7rem; letter-spacing:0.05em; opacity:0.45; background:#000; color:#fff; border-top: 1px solid rgba(255,255,255,0.08);">
+  <a href="https://instagram.com/BananaCares" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">
+    Mockup created by Banana Bytes
+  </a>
+</div>
+
+<script>
+  // direction codes: A = Atelier (editorial dark), B = Spec (engineered off-white), C = Volley (kinetic court)
+  const ASSETS = [
+    // ─── HEROES ─────────────────────────────────────────────────
+    { id: 'A1', file: 'A-hero-01.jpg',         title: 'Clay court · dust at dusk',           cat: 'hero',       dir: 'A',   myPick: 'use',   notes: 'Editorial cinematic — empty clay court, dust kicked up after an unseen rally, ball foreground. Direction A primary hero. Strong winner.' },
+    { id: 'A2', file: 'A-hero-02.jpg',         title: 'Clay court · ball on line, raked',    cat: 'hero',       dir: 'A',   myPick: 'bench', notes: 'Overhead clay with diagonal raking light, footprints, drag patterns. Strong alternate hero or section opener.' },
+    { id: 'A3', file: 'A-hero-03.jpg',         title: 'Foggy court · bench + racquet',       cat: 'hero',       dir: 'A',   myPick: 'bench', notes: 'Hopper-mood pre-dawn fog, bench with leaning racquet. Beautiful for a contemplative section break.' },
+    { id: 'B1', file: 'B-hero-01.jpg',         title: 'Brushless DC motor · specimen',       cat: 'hero',       dir: 'B',   myPick: 'use',   notes: 'Teenage Engineering / OP-1 product photo energy. Direction B primary hero — pure engineered poetry.' },
+    { id: 'B2', file: 'B-hero-02.jpg',         title: 'PCB · macro on white',                cat: 'hero',       dir: 'B',   myPick: 'bench', notes: 'Custom green-soldermask PCB with diagonal raking light. Spec-section gem.' },
+    { id: 'B3', file: 'B-hero-03.jpg',         title: 'Wheel + ball · still life',           cat: 'hero',       dir: 'B',   myPick: 'bench', notes: 'Drive wheel and tennis ball still life. Editorial restraint — could be a section header.' },
+    { id: 'C1', file: 'C-hero-01.jpg',         title: 'Stadium night · ball mid-air',        cat: 'hero',       dir: 'C',   myPick: 'bench', notes: 'Ball frozen mid-flight against deep navy stadium court at night. Stadium spotlight rim. Strong alt hero.' },
+    { id: 'C2', file: 'C-hero-02.jpg',         title: 'Court geometry · sunrise baseline',   cat: 'hero',       dir: 'C',   myPick: 'use',   notes: 'Ultra low-angle navy court at sunrise, ball on baseline, raking light. Direction C primary hero — On Running campaign energy.' },
+    { id: 'C3', file: 'C-hero-03.jpg',         title: 'Motion-blur arc · daylight',          cat: 'hero',       dir: 'C',   myPick: 'bench', notes: 'Yellow ball motion-blur arc across vivid blue daylight court. Big poster moment.' },
+
+    // ─── FOUNDER ────────────────────────────────────────────────
+    { id: 'F1', file: 'founder-window-01.jpg',     title: 'Founder · cream sweater + window light', cat: 'founder', dir: 'A,B,C', myPick: 'use',   notes: 'Closest to Sophie\'s real profile — Asian woman, cream sweater, examining a robotics component in industrial-window backlight. Suggested figure (no identifiable face). The hero founder shot.' },
+    { id: 'F2', file: 'founder-bench-01.jpg',      title: 'Workbench · top-down hands',             cat: 'founder', dir: 'A',     myPick: 'use',   notes: 'Hands assembling motors at workbench — soldering iron, CAD laptop, brackets, screws. The "founder origin story" image. Direction A.' },
+    { id: 'F3', file: 'founder-printer-01.jpg',    title: '3D printer · midnight print',            cat: 'founder', dir: 'A,B',   myPick: 'use',   notes: 'White plastic part being 3D-printed at night. Matches Sophie\'s exact "3D-printing parts on living room floor" quote. Mandatory.' },
+    { id: 'F4', file: 'founder-sketchbook-01.jpg', title: 'Sketchbook · coffee · motor',            cat: 'founder', dir: 'A,B',   myPick: 'use',   notes: 'Open sketchbook with hand-drawn engineering schematics, coffee mug, single motor. Quiet poetry. Section opener gold.' },
+    { id: 'F5', file: 'founder-cad-01.jpg',        title: 'Laptop CAD · founder hands',             cat: 'founder', dir: 'B',     myPick: 'bench', notes: 'CAD wireframe glowing on laptop, hands on keyboard, single component beside. Solid but more generic than F2/F3/F4.' },
+
+    // ─── PRODUCT / CONTEXT ──────────────────────────────────────
+    { id: 'P1', file: 'mavio-court-01.jpg',         title: 'Mavio · golden hour court',         cat: 'product',  dir: 'A,B,C', myPick: 'use',   notes: 'Imagined production Mavio at navy court baseline at golden hour, dramatic shadow. The "what it could look like" pitch. Photography placeholder for a real shoot.' },
+    { id: 'P2', file: 'mavio-studio-01.jpg',        title: 'Mavio · Apple-product studio shot', cat: 'product',  dir: 'B',     myPick: 'use',   notes: 'Imagined production Mavio on cream seamless backdrop. Pure Apple-launch energy. Direction B product hero.' },
+    { id: 'P3', file: 'engineering-knolling-01.jpg', title: 'Knolling · teardown layout',        cat: 'product',  dir: 'B',     myPick: 'use',   notes: 'Top-down knolling of all components — motors, wheels, PCB, brackets, cable, screws, camera module. Wired magazine teardown spread. Direction B section.' },
+
+    // ─── FEATURE / AI ───────────────────────────────────────────
+    { id: 'AI1', file: 'ai-overlay-01.jpg',     title: 'Motion-tracking overlay',     cat: 'feature', dir: 'C',     myPick: 'use',   notes: 'Player silhouette with glowing yellow joint-tracking overlay. Visualizes "OBSERVES" pillar. Direction C primary AI shot.' },
+    { id: 'AI2', file: 'ai-trajectory-01.jpg',  title: 'Ball trajectory · arc on court', cat: 'feature', dir: 'A,C', myPick: 'use', notes: 'Yellow vector arc traced through air showing predicted shot path. Hawk-Eye broadcast aesthetic. Visualizes "ANALYZES" pillar.' },
+    { id: 'AI3', file: 'app-dashboard-01.jpg',  title: 'App dashboard · phone mockup', cat: 'feature', dir: 'B,C',   myPick: 'use',   notes: 'Floating phone with dark-mode tennis analytics — yellow numerics, charts, court heatmap. Companion-app hero. No real text just abstract data viz.' },
+
+    // ─── ATMOSPHERE / TEXTURE ───────────────────────────────────
+    { id: 'AT1', file: 'court-clay-01.jpg',       title: 'Clay surface · macro line',     cat: 'atmosphere', dir: 'A',     myPick: 'use',   notes: 'Tactile clay-with-line macro. Section divider for Direction A — the warmth of the surface.' },
+    { id: 'AT2', file: 'court-hardcourt-01.jpg',  title: 'Hardcourt · ball overhead',     cat: 'atmosphere', dir: 'B,C',   myPick: 'use',   notes: 'Overhead navy court with single ball + sharp shadow. Apple-restraint. Section divider.' },
+    { id: 'AT3', file: 'balls-basket-01.jpg',     title: 'Wire basket · 80 balls',        cat: 'atmosphere', dir: 'C',     myPick: 'use',   notes: 'Vibrant ball-pile in steel-wire basket on navy court. Dense color punch.' },
+    { id: 'AT4', file: 'balls-clay-01.jpg',       title: 'Balls scattered on clay',       cat: 'atmosphere', dir: 'A',     myPick: 'use',   notes: 'Dozen balls loosely scattered across clay. Warm, editorial, Roland Garros mood.' },
+    { id: 'AT5', file: 'clay-dust-01.jpg',        title: 'Clay dust · burst',             cat: 'atmosphere', dir: 'A',     myPick: 'use',   notes: 'High-speed clay dust splash kicked up by a ball. Atmospheric punch — ephemeral, beautiful.' },
+    { id: 'AT6', file: 'court-net-01.jpg',        title: 'Net · white-band detail',       cat: 'atmosphere', dir: 'A,B,C', myPick: 'use',   notes: 'Tennis net white-band tape closeup with court behind. Quiet elegant detail.' },
+    { id: 'AT7', file: 'court-aerial-01.jpg',     title: 'Court aerial · architectural',  cat: 'atmosphere', dir: 'B,C',   myPick: 'use',   notes: 'Drone-overhead navy court, full geometry, net shadow. Architectural and graphic.' },
+
+    // ─── DETAIL / BODY ──────────────────────────────────────────
+    { id: 'D1', file: 'player-feet-01.jpg',          title: 'Feet · ready stance baseline',   cat: 'detail', dir: 'C',     myPick: 'use',   notes: 'Worn white shoes on navy baseline, knees soft, the moment-before-return tension. Authentic court wear.' },
+    { id: 'D2', file: 'player-grip-01.jpg',          title: 'Hand · racquet grip macro',      cat: 'detail', dir: 'A,C',   myPick: 'use',   notes: 'Hand wrapped around overgrip, sweat detail, warm sidelight. The intimacy of preparation.' },
+    { id: 'D3', file: 'player-silhouette-01.jpg',    title: 'Silhouette · sunset forehand',   cat: 'detail', dir: 'C',     myPick: 'use',   notes: 'Player in dramatic silhouette against orange-magenta sunset, racquet arc, dynamic balance. US Open poster energy.' },
+
+    // ─── REAL SOURCE ASSETS ─────────────────────────────────────
+    { id: 'R1', file: 'first_prototype.jpeg',        title: 'REAL · first prototype on court', cat: 'source', dir: 'A,B', myPick: 'use', notes: 'The actual Mavio prototype on a navy hardcourt — exposed wires, white plastic frame, tennis balls at base. From mavio.ai. Authentic origin-story image.' },
+    { id: 'R2', file: 'sophie-founder-collage.png',  title: 'REAL · Sophie life collage',     cat: 'source', dir: 'A',   myPick: 'use', notes: 'Sophie\'s actual founder collage from mavio.ai — court, prototype, car-load, headshot. Use as-is.' },
+    { id: 'R3', file: 'new_wheels.jpg',              title: 'REAL · new launch wheels',        cat: 'source', dir: 'B',   myPick: 'use', notes: 'Actual photo of the redesigned launch wheels from mavio.ai July 2025 update. Material proof.' },
+    { id: 'R4', file: 'worn-wheel.jpeg',             title: 'REAL · worn PU wheel',            cat: 'source', dir: 'B',   myPick: 'bench', notes: 'Actual worn polyurethane wheel after field tests. Engineering-honesty story moment.' },
+    { id: 'R5', file: 'field-test.gif',              title: 'REAL · field test motion GIF',    cat: 'source', dir: 'A,B,C', myPick: 'use', notes: 'Actual field-test GIF from mavio.ai — kinetic proof the machine works. Embed in the "DEVELOPMENT" section.' }
+  ];
+
+  const STORAGE_KEY = 'mavio-selection-v1';
+  let state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+
+  if (Object.keys(state).length === 0) {
+    ASSETS.forEach(a => state[a.id] = a.myPick);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  const grid = document.getElementById('grid');
+
+  function render() {
+    grid.innerHTML = ASSETS.map(a => {
+      const s = state[a.id] || '';
+      const myFlag = a.myPick && a.myPick === s ? `<span class="text-white/45">· my pick</span>` : '';
+      const myDiff = a.myPick && a.myPick !== s ? `<span class="text-white/45">· I picked ${a.myPick.toUpperCase()}</span>` : '';
+      return `
+        <article class="tile relative bg-[#0d0d0d]" data-id="${a.id}" data-state="${s}" data-cat="${a.cat}">
+          <span class="badge">${s ? s.toUpperCase() : ''}</span>
+          <span class="tag-direction">DIR ${a.dir}</span>
+          <a href="images/${a.file}" target="_blank" rel="noopener">
+            <img src="images/${a.file}" alt="${a.title}" loading="lazy">
+          </a>
+          <div class="p-4 md:p-5">
+            <div class="flex items-baseline gap-2 mono text-[10px] uppercase tracking-[0.18em] text-white/55">
+              <span class="text-white">#${a.id}</span>
+              <span aria-hidden="true">·</span>
+              <span>${a.cat}</span>
+              ${myFlag}${myDiff}
+            </div>
+            <h3 class="display text-base md:text-lg mt-2">${a.title}</h3>
+            <p class="mt-2 text-sm text-white/65 leading-snug">${a.notes}</p>
+            <div class="mt-4 flex gap-2">
+              <button class="btn" data-action="use"   data-id="${a.id}" data-active="${s==='use'}">Use</button>
+              <button class="btn" data-action="bench" data-id="${a.id}" data-active="${s==='bench'}">Bench</button>
+              <button class="btn" data-action="kill"  data-id="${a.id}" data-active="${s==='kill'}">Kill</button>
+            </div>
+          </div>
+        </article>
+      `;
+    }).join('');
+    updateCounts();
+    applyFilters();
+  }
+
+  function updateCounts() {
+    const counts = { use: 0, bench: 0, kill: 0, untagged: 0 };
+    ASSETS.forEach(a => {
+      const s = state[a.id];
+      if (s === 'use' || s === 'bench' || s === 'kill') counts[s]++;
+      else counts.untagged++;
+    });
+    document.getElementById('count-use').textContent = counts.use;
+    document.getElementById('count-bench').textContent = counts.bench;
+    document.getElementById('count-kill').textContent = counts.kill;
+    document.getElementById('count-untagged').textContent = counts.untagged;
+  }
+
+  let activeCat = 'all';
+  let activeStatus = 'all';
+
+  function applyFilters() {
+    document.querySelectorAll('.tile').forEach(t => {
+      const cat = t.getAttribute('data-cat');
+      const st = t.getAttribute('data-state') || '';
+      const catOk = activeCat === 'all' || cat === activeCat;
+      let statusOk = true;
+      if (activeStatus === 'untagged') statusOk = !st;
+      else if (activeStatus !== 'all') statusOk = st === activeStatus;
+      t.classList.toggle('hidden-by-filter', !(catOk && statusOk));
+    });
+  }
+
+  grid.addEventListener('click', e => {
+    const btn = e.target.closest('button[data-action]');
+    if (!btn) return;
+    const id = btn.getAttribute('data-id');
+    const action = btn.getAttribute('data-action');
+    if (state[id] === action) {
+      delete state[id];
+    } else {
+      state[id] = action;
+    }
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    render();
+  });
+
+  document.querySelectorAll('[data-filter]').forEach(b => {
+    b.addEventListener('click', () => {
+      activeCat = b.getAttribute('data-filter');
+      document.querySelectorAll('[data-filter]').forEach(x => x.setAttribute('data-active', x === b ? 'true' : 'false'));
+      applyFilters();
+    });
+  });
+  document.querySelectorAll('[data-status]').forEach(b => {
+    b.addEventListener('click', () => {
+      activeStatus = b.getAttribute('data-status');
+      document.querySelectorAll('[data-status]').forEach(x => x.setAttribute('data-active', x === b ? 'true' : 'false'));
+      applyFilters();
+    });
+  });
+
+  document.getElementById('copy-btn').addEventListener('click', async () => {
+    const lines = [];
+    lines.push('# Mavio · Selection · ' + new Date().toLocaleString());
+    lines.push('');
+    ['use','bench','kill'].forEach(group => {
+      const ids = ASSETS.filter(a => state[a.id] === group);
+      if (ids.length) {
+        lines.push(`## ${group.toUpperCase()} (${ids.length})`);
+        ids.forEach(a => lines.push(`- #${a.id} ${a.title} — images/${a.file}`));
+        lines.push('');
+      }
+    });
+    const untagged = ASSETS.filter(a => !state[a.id]);
+    if (untagged.length) {
+      lines.push(`## UNTAGGED (${untagged.length})`);
+      untagged.forEach(a => lines.push(`- #${a.id} ${a.title}`));
+    }
+    const text = lines.join('\n');
+    try {
+      await navigator.clipboard.writeText(text);
+      showToast('Copied · paste back to me');
+    } catch(e) {
+      const w = window.open('', '_blank');
+      w.document.write('<pre style="font-family:monospace;white-space:pre-wrap;padding:24px">' + text.replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c])) + '</pre>');
+    }
+  });
+
+  document.getElementById('reset-btn').addEventListener('click', () => {
+    if (!confirm('Reset all selections? This will clear your tags and reseed with my picks.')) return;
+    state = {};
+    ASSETS.forEach(a => state[a.id] = a.myPick);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    render();
+  });
+
+  function showToast(msg) {
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.style.opacity = '1';
+    setTimeout(() => { el.style.opacity = '0'; }, 1800);
+  }
+
+  document.addEventListener('keydown', e => {
+    const map = { '1':'use', '2':'bench', '3':'kill' };
+    const action = map[e.key];
+    if (!action) return;
+    const hover = document.querySelector('.tile:hover');
+    if (!hover) return;
+    const id = hover.getAttribute('data-id');
+    if (state[id] === action) delete state[id]; else state[id] = action;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    render();
+  });
+
+  render();
+</script>
+
+</body>
+</html>
