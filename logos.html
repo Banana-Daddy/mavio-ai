@@ -3,26 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mavio — Logo Concepts</title>
+<title>Mavio — Logo Concepts v2</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=JetBrains+Mono:wght@400;500&family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   :root{
     --ink:#0A0A0A;
     --paper:#F4F4F1;
-    --clay:#C8552B;
-    --court-yellow:#D4F542;
-    --court-navy:#0B1F3A;
+    --clay:#B8451C;
     --cream:#F5F0E8;
+    --bone:#F0EEE9;
+    --cobalt:#2540F0;
+    --sport:#FF5A1F;
   }
-  body{font-family:'Bricolage Grotesque', system-ui, sans-serif; background:var(--paper); color:var(--ink);}
+  body{font-family:'Outfit', system-ui, sans-serif; background:var(--paper); color:var(--ink); -webkit-font-smoothing:antialiased;}
   .serif{font-family:'Fraunces', serif;}
+  .grotesk{font-family:'Bricolage Grotesque', sans-serif;}
+  .geo{font-family:'Outfit', sans-serif;}
   .mono{font-family:'JetBrains Mono', monospace;}
-  .anton{font-family:'Anton', sans-serif; letter-spacing:0.01em;}
-  .manrope{font-family:'Manrope', sans-serif;}
-  .grid-bg{background-image:linear-gradient(rgba(10,10,10,.04) 1px, transparent 1px),linear-gradient(90deg, rgba(10,10,10,.04) 1px, transparent 1px); background-size:24px 24px;}
+  .grid-bg{background-image:linear-gradient(rgba(10,10,10,.035) 1px, transparent 1px),linear-gradient(90deg, rgba(10,10,10,.035) 1px, transparent 1px); background-size:32px 32px;}
+  .tile{transition: transform 0.25s ease, box-shadow 0.25s ease;}
+  .tile:hover{transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.08);}
 </style>
 </head>
 <body class="grid-bg">
@@ -32,89 +35,98 @@
   <div class="max-w-7xl mx-auto px-6 py-5 flex items-end justify-between">
     <div>
       <div class="mono text-[11px] uppercase tracking-[0.2em] opacity-50">Banana Bytes / Mavio</div>
-      <h1 class="serif text-3xl md:text-4xl font-semibold mt-1">Logo Concepts — 3 directions</h1>
+      <h1 class="serif text-3xl md:text-4xl font-semibold mt-1">Logo Concepts — v2</h1>
     </div>
-    <div class="hidden md:block mono text-[11px] uppercase tracking-[0.2em] opacity-60">v1.0 · 04.30.26</div>
+    <div class="hidden md:block mono text-[11px] uppercase tracking-[0.2em] opacity-60">v2.0 · 04.30.26 · refined</div>
   </div>
 </header>
 
 <main class="max-w-7xl mx-auto px-6 py-12 md:py-20">
 
-  <p class="serif text-xl md:text-2xl max-w-3xl leading-snug mb-16 md:mb-24">
-    Three logo systems for Mavio. Each carries a wordmark, an icon mark, a monogram for app/favicon use, and a single-letter "stamp" for partnerships and packaging. Designed in vector — every variation is production-ready.
+  <p class="serif text-xl md:text-2xl max-w-3xl leading-snug mb-6">
+    Three refined logo systems for Mavio. Trace and Spec re-tightened; Volley replaced by Echo — a contemporary AI-tech mark.
+  </p>
+  <p class="text-sm md:text-base text-black/55 max-w-2xl leading-relaxed mb-16 md:mb-24">
+    Note · all logos here are 100% hand-coded SVG. No image-generation models touched these — every glyph, dot, arc, kerning value, and stamp is in the markup.
   </p>
 
   <!-- ========================== CONCEPT 01 — TRACE ========================== -->
   <section class="mb-24 md:mb-32">
     <div class="grid md:grid-cols-12 gap-6 mb-10">
       <div class="md:col-span-3">
-        <div class="mono text-[11px] uppercase tracking-[0.2em] opacity-60">Concept 01</div>
+        <div class="mono text-[11px] uppercase tracking-[0.2em] opacity-60">Concept 01 · refined</div>
         <h2 class="serif text-4xl md:text-5xl font-semibold mt-2">Trace</h2>
       </div>
       <div class="md:col-span-9">
         <p class="text-base md:text-lg leading-relaxed opacity-80 max-w-2xl">
-          A continuous single-stroke wordmark — the dot of the <em class="serif">i</em> is the ball, traced by a flight arc that resolves the entire mark. Quietly editorial. Reads as craft, not robot.
+          The dot of the <em class="serif">i</em> is the ball — a clay-fired sphere with the authentic curved felt-seam, sitting precisely where the dot belongs. No floating arc, no decoration. The mark stands as a single confident word with one quiet detail that rewards close looking.
         </p>
         <div class="mono text-[11px] uppercase tracking-[0.18em] opacity-60 mt-3">
-          <span>Geometry</span> · <span>Variable weight</span> · <span>Scales 16–1200px</span>
+          <span>Fraunces opsz·144</span> · <span>Optical kern</span> · <span>Felt-seam dot</span>
         </div>
       </div>
     </div>
 
     <!-- Hero wordmark -->
-    <div class="bg-[#0E0E0C] text-[#F5F0E8] rounded-3xl p-12 md:p-20 mb-6 relative overflow-hidden">
-      <div class="absolute inset-0 opacity-20" style="background:radial-gradient(60% 80% at 30% 20%, rgba(200,85,43,0.4), transparent 60%);"></div>
-      <svg viewBox="0 0 720 220" class="w-full max-w-2xl mx-auto relative z-10" xmlns="http://www.w3.org/2000/svg" aria-label="Mavio wordmark — Trace concept">
-        <defs>
-          <linearGradient id="trace-stroke" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#F5F0E8"/>
-            <stop offset="80%" stop-color="#F5F0E8"/>
-            <stop offset="100%" stop-color="#C8552B"/>
-          </linearGradient>
-        </defs>
-        <text x="360" y="155" text-anchor="middle" font-family="Fraunces, serif" font-weight="600" font-size="180" letter-spacing="-6" fill="#F5F0E8">mav<tspan>i</tspan>o</text>
-        <!-- Trace arc above the i, terminating in a ball -->
-        <path d="M 360 70 Q 410 30 460 60" fill="none" stroke="url(#trace-stroke)" stroke-width="3" stroke-linecap="round" />
-        <circle cx="460" cy="60" r="9" fill="#C8552B"/>
-        <circle cx="460" cy="60" r="9" fill="none" stroke="#0E0E0C" stroke-width="0.5"/>
-        <!-- Tennis ball seam on the dot -->
-        <path d="M 453 56 Q 460 64 467 56" fill="none" stroke="#0E0E0C" stroke-width="0.5"/>
+    <div class="bg-[#0E0E0C] text-[#F5F0E8] rounded-3xl p-12 md:p-24 mb-6 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-20" style="background:radial-gradient(60% 80% at 30% 20%, rgba(184,69,28,0.45), transparent 65%);"></div>
+
+      <svg viewBox="0 0 720 220" class="w-full max-w-2xl mx-auto relative z-10" xmlns="http://www.w3.org/2000/svg" aria-label="Mavio wordmark — Trace">
+        <!-- Clean serif wordmark with the dot of i replaced by clay-felt ball -->
+        <text x="360" y="160" text-anchor="middle" font-family="Fraunces, serif" font-weight="500" font-size="200" letter-spacing="-8" fill="#F5F0E8" font-variation-settings="'opsz' 144">mav<tspan dx="-2">ı</tspan>o</text>
+        <!-- The clay ball as the i-dot, sized & placed where a dot would sit -->
+        <g transform="translate(327, 56)">
+          <circle cx="0" cy="0" r="14" fill="#B8451C"/>
+          <!-- felt seam — single subtle curve -->
+          <path d="M -12 -3 Q 0 9 12 -3" fill="none" stroke="#0E0E0C" stroke-width="0.8" stroke-linecap="round" opacity="0.55"/>
+        </g>
       </svg>
     </div>
 
     <!-- Variation row -->
     <div class="grid md:grid-cols-4 gap-4">
-      <div class="bg-[#F5F0E8] border border-black/10 rounded-2xl p-8 flex items-center justify-center aspect-square">
-        <svg viewBox="0 0 360 110" class="w-full" xmlns="http://www.w3.org/2000/svg" aria-label="Trace wordmark on cream">
-          <text x="180" y="78" text-anchor="middle" font-family="Fraunces, serif" font-weight="600" font-size="92" letter-spacing="-3" fill="#0E0E0C">mavio</text>
-          <circle cx="219" cy="35" r="5" fill="#C8552B"/>
+      <!-- Cream / clay-dot -->
+      <div class="tile bg-[#F5F0E8] border border-black/10 rounded-2xl p-8 flex items-center justify-center aspect-square">
+        <svg viewBox="0 0 360 110" class="w-full" xmlns="http://www.w3.org/2000/svg" aria-label="Trace · cream / clay-dot">
+          <text x="180" y="84" text-anchor="middle" font-family="Fraunces, serif" font-weight="500" font-size="100" letter-spacing="-4" fill="#0E0E0C">mavıo</text>
+          <g transform="translate(196, 30)">
+            <circle cx="0" cy="0" r="7.5" fill="#B8451C"/>
+            <path d="M -6.5 -1.5 Q 0 5 6.5 -1.5" fill="none" stroke="#0E0E0C" stroke-width="0.6" opacity="0.6"/>
+          </g>
         </svg>
       </div>
-      <div class="bg-[#C8552B] text-[#F5F0E8] rounded-2xl p-8 flex items-center justify-center aspect-square">
-        <svg viewBox="0 0 360 110" class="w-full" xmlns="http://www.w3.org/2000/svg" aria-label="Trace wordmark on clay">
-          <text x="180" y="78" text-anchor="middle" font-family="Fraunces, serif" font-weight="600" font-size="92" letter-spacing="-3" fill="#F5F0E8">mavio</text>
-          <circle cx="219" cy="35" r="5" fill="#0E0E0C"/>
+      <!-- Clay / cream -->
+      <div class="tile bg-[#B8451C] text-[#F5F0E8] rounded-2xl p-8 flex items-center justify-center aspect-square">
+        <svg viewBox="0 0 360 110" class="w-full" xmlns="http://www.w3.org/2000/svg" aria-label="Trace · clay / cream-dot">
+          <text x="180" y="84" text-anchor="middle" font-family="Fraunces, serif" font-weight="500" font-size="100" letter-spacing="-4" fill="#F5F0E8">mavıo</text>
+          <g transform="translate(196, 30)">
+            <circle cx="0" cy="0" r="7.5" fill="#F5F0E8"/>
+            <path d="M -6.5 -1.5 Q 0 5 6.5 -1.5" fill="none" stroke="#B8451C" stroke-width="0.6" opacity="0.7"/>
+          </g>
         </svg>
       </div>
-      <!-- Mark only -->
-      <div class="bg-[#0E0E0C] rounded-2xl p-8 flex items-center justify-center aspect-square">
-        <svg viewBox="0 0 200 200" class="w-32 h-32" xmlns="http://www.w3.org/2000/svg" aria-label="Trace mark — arc with ball">
-          <path d="M 40 140 Q 100 30 160 100" fill="none" stroke="#F5F0E8" stroke-width="6" stroke-linecap="round"/>
-          <circle cx="160" cy="100" r="14" fill="#C8552B"/>
-          <path d="M 149 92 Q 160 108 171 92" fill="none" stroke="#0E0E0C" stroke-width="1"/>
+      <!-- Brand asset: Mavio Ball (standalone) -->
+      <div class="tile bg-[#0E0E0C] rounded-2xl p-8 flex items-center justify-center aspect-square">
+        <svg viewBox="0 0 200 200" class="w-32 h-32" xmlns="http://www.w3.org/2000/svg" aria-label="Trace mark · Mavio Ball">
+          <circle cx="100" cy="100" r="64" fill="#B8451C"/>
+          <path d="M 36 88 Q 100 144 164 88" fill="none" stroke="#0E0E0C" stroke-width="2" opacity="0.6" stroke-linecap="round"/>
+          <path d="M 36 112 Q 100 56 164 112" fill="none" stroke="#0E0E0C" stroke-width="2" opacity="0.6" stroke-linecap="round"/>
         </svg>
       </div>
-      <!-- Monogram -->
-      <div class="bg-[#F5F0E8] border border-black/10 rounded-2xl p-8 flex items-center justify-center aspect-square">
-        <svg viewBox="0 0 200 200" class="w-32 h-32" xmlns="http://www.w3.org/2000/svg" aria-label="Trace monogram — m with arc">
-          <text x="100" y="135" text-anchor="middle" font-family="Fraunces, serif" font-weight="700" font-size="160" fill="#0E0E0C">m</text>
-          <circle cx="155" cy="50" r="10" fill="#C8552B"/>
+      <!-- Monogram: m + clay dot in proper i-position -->
+      <div class="tile bg-[#F5F0E8] border border-black/10 rounded-2xl p-8 flex items-center justify-center aspect-square">
+        <svg viewBox="0 0 200 200" class="w-32 h-32" xmlns="http://www.w3.org/2000/svg" aria-label="Trace monogram · m with clay dot">
+          <text x="100" y="148" text-anchor="middle" font-family="Fraunces, serif" font-weight="500" font-size="170" letter-spacing="-6" fill="#0E0E0C">m</text>
+          <g transform="translate(154, 50)">
+            <circle cx="0" cy="0" r="11" fill="#B8451C"/>
+            <path d="M -9 -2 Q 0 7 9 -2" fill="none" stroke="#0E0E0C" stroke-width="0.8" opacity="0.6"/>
+          </g>
         </svg>
       </div>
     </div>
 
     <div class="mono text-[11px] uppercase tracking-[0.18em] opacity-60 mt-3 grid grid-cols-4 gap-4">
-      <span>Cream / Clay</span><span>Clay / Cream</span><span>Mark / Ink</span><span>Monogram / Cream</span>
+      <span>Cream / Clay</span><span>Clay / Cream</span><span>Mavio Ball mark</span><span>Monogram</span>
     </div>
   </section>
 
@@ -122,169 +134,178 @@
   <section class="mb-24 md:mb-32">
     <div class="grid md:grid-cols-12 gap-6 mb-10">
       <div class="md:col-span-3">
-        <div class="mono text-[11px] uppercase tracking-[0.2em] opacity-60">Concept 02</div>
+        <div class="mono text-[11px] uppercase tracking-[0.2em] opacity-60">Concept 02 · refined</div>
         <h2 class="serif text-4xl md:text-5xl font-semibold mt-2">Spec</h2>
       </div>
       <div class="md:col-span-9">
         <p class="text-base md:text-lg leading-relaxed opacity-80 max-w-2xl">
-          Engineered grotesque — a precise mechanical wordmark with a hatched dot and a stamp-sized "M·V" technical badge. Reads like an engineering drawing in a Hasselblad manual.
+          A precise mechanical wordmark with a single sport-orange dot — properly placed, properly sized, treated like a pilot light on engineered hardware. A small registered-symbol-style spec mark sits beside the wordmark as a deliberate technical signature.
         </p>
         <div class="mono text-[11px] uppercase tracking-[0.18em] opacity-60 mt-3">
-          <span>Bricolage Grotesque</span> · <span>Hatched dot</span> · <span>Stamp variant</span>
+          <span>Bricolage opsz·96</span> · <span>Sport pilot dot</span> · <span>Spec stamp variant</span>
         </div>
       </div>
     </div>
 
     <!-- Hero wordmark -->
-    <div class="bg-[#F4F4F1] border border-black/10 rounded-3xl p-12 md:p-20 mb-6 relative overflow-hidden">
-      <!-- Hairline grid -->
-      <div class="absolute inset-0 opacity-30" style="background-image:linear-gradient(rgba(10,10,10,.08) 1px, transparent 1px),linear-gradient(90deg, rgba(10,10,10,.08) 1px, transparent 1px); background-size:48px 48px;"></div>
+    <div class="bg-[#F0EEE9] border border-black/10 rounded-3xl p-12 md:p-24 mb-6 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-30" style="background-image:linear-gradient(rgba(10,10,10,.07) 1px, transparent 1px),linear-gradient(90deg, rgba(10,10,10,.07) 1px, transparent 1px); background-size:64px 64px;"></div>
       <!-- Corner crosshairs -->
-      <svg class="absolute top-6 left-6 w-6 h-6 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 12h24M12 0v24"/></svg>
-      <svg class="absolute top-6 right-6 w-6 h-6 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 12h24M12 0v24"/></svg>
-      <svg class="absolute bottom-6 left-6 w-6 h-6 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 12h24M12 0v24"/></svg>
-      <svg class="absolute bottom-6 right-6 w-6 h-6 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 12h24M12 0v24"/></svg>
+      <svg class="absolute top-6 left-6 w-5 h-5 opacity-35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 12h24M12 0v24"/></svg>
+      <svg class="absolute top-6 right-6 w-5 h-5 opacity-35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 12h24M12 0v24"/></svg>
+      <svg class="absolute bottom-6 left-6 w-5 h-5 opacity-35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 12h24M12 0v24"/></svg>
+      <svg class="absolute bottom-6 right-6 w-5 h-5 opacity-35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M0 12h24M12 0v24"/></svg>
 
-      <svg viewBox="0 0 720 220" class="w-full max-w-2xl mx-auto relative z-10" xmlns="http://www.w3.org/2000/svg" aria-label="Mavio wordmark — Spec concept">
-        <defs>
-          <pattern id="hatch" patternUnits="userSpaceOnUse" width="4" height="4" patternTransform="rotate(45)">
-            <line x1="0" y1="0" x2="0" y2="4" stroke="#FF5A1F" stroke-width="1.6"/>
-          </pattern>
-        </defs>
-        <text x="360" y="155" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="170" letter-spacing="-7" fill="#0A0A0A">mav<tspan>i</tspan>o</text>
-        <!-- Hatched dot above the i -->
-        <rect x="367" y="42" width="22" height="22" fill="url(#hatch)" stroke="#0A0A0A" stroke-width="0.8"/>
+      <svg viewBox="0 0 760 220" class="w-full max-w-3xl mx-auto relative z-10" xmlns="http://www.w3.org/2000/svg" aria-label="Mavio wordmark — Spec">
+        <!-- Clean Bricolage wordmark — solid orange dot, properly placed -->
+        <text x="320" y="160" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="180" letter-spacing="-9" fill="#0A0A0A">mavıo</text>
+        <!-- Pilot-light orange dot, properly sized as the i-dot -->
+        <circle cx="288" cy="56" r="11" fill="#FF5A1F"/>
+        <!-- Spec mark beside wordmark — small registered-symbol style -->
+        <g transform="translate(610, 138)">
+          <circle cx="0" cy="0" r="22" fill="none" stroke="#0A0A0A" stroke-width="1.5"/>
+          <text x="0" y="6" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="14" font-weight="500" fill="#0A0A0A">M</text>
+        </g>
       </svg>
 
       <div class="absolute bottom-4 left-1/2 -translate-x-1/2 mono text-[10px] tracking-[0.3em] opacity-50">
-        TYPE: BRICOLAGE GROTESQUE · WT 700 · TRK -7
+        TYPE · BRICOLAGE GROTESQUE 700 / TRK -9
       </div>
     </div>
 
     <!-- Variation row -->
     <div class="grid md:grid-cols-4 gap-4">
-      <div class="bg-[#0A0A0A] text-[#F4F4F1] rounded-2xl p-8 flex items-center justify-center aspect-square">
-        <svg viewBox="0 0 360 110" class="w-full" xmlns="http://www.w3.org/2000/svg" aria-label="Spec wordmark on ink">
+      <!-- Ink / cream -->
+      <div class="tile bg-[#0A0A0A] text-[#F0EEE9] rounded-2xl p-8 flex items-center justify-center aspect-square">
+        <svg viewBox="0 0 360 110" class="w-full" xmlns="http://www.w3.org/2000/svg" aria-label="Spec · ink / cream">
+          <text x="180" y="86" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="100" letter-spacing="-4" fill="#F0EEE9">mavıo</text>
+          <circle cx="200" cy="32" r="6" fill="#FF5A1F"/>
+        </svg>
+      </div>
+      <!-- Sport / ink -->
+      <div class="tile bg-[#FF5A1F] text-[#0A0A0A] rounded-2xl p-8 flex items-center justify-center aspect-square">
+        <svg viewBox="0 0 360 110" class="w-full" xmlns="http://www.w3.org/2000/svg" aria-label="Spec · sport / ink">
+          <text x="180" y="86" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="100" letter-spacing="-4" fill="#0A0A0A">mavıo</text>
+          <circle cx="200" cy="32" r="6" fill="#0A0A0A"/>
+        </svg>
+      </div>
+      <!-- Spec stamp -->
+      <div class="tile bg-[#F0EEE9] border border-black/15 rounded-2xl p-8 flex items-center justify-center aspect-square">
+        <svg viewBox="0 0 200 200" class="w-36 h-36" xmlns="http://www.w3.org/2000/svg" aria-label="Spec stamp · M circle">
+          <circle cx="100" cy="100" r="86" fill="none" stroke="#0A0A0A" stroke-width="1.5"/>
+          <circle cx="100" cy="100" r="78" fill="none" stroke="#0A0A0A" stroke-width="0.4" stroke-dasharray="1.5 3"/>
+          <text x="100" y="118" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="72" letter-spacing="-3" fill="#0A0A0A">M</text>
+          <!-- arched EST · 2025 around bottom -->
           <defs>
-            <pattern id="hatch-light" patternUnits="userSpaceOnUse" width="3" height="3" patternTransform="rotate(45)">
-              <line x1="0" y1="0" x2="0" y2="3" stroke="#FF5A1F" stroke-width="1"/>
-            </pattern>
+            <path id="arc-bottom" d="M 28 122 A 72 72 0 0 0 172 122"/>
           </defs>
-          <text x="180" y="78" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="92" letter-spacing="-3" fill="#F4F4F1">mavio</text>
-          <rect x="220" y="20" width="13" height="13" fill="url(#hatch-light)" stroke="#F4F4F1" stroke-width="0.5"/>
+          <text font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="3" fill="#0A0A0A">
+            <textPath href="#arc-bottom" startOffset="50%" text-anchor="middle">EST · 2025 · MAVIO</textPath>
+          </text>
         </svg>
       </div>
-      <div class="bg-[#FF5A1F] text-[#0A0A0A] rounded-2xl p-8 flex items-center justify-center aspect-square">
-        <svg viewBox="0 0 360 110" class="w-full" xmlns="http://www.w3.org/2000/svg" aria-label="Spec wordmark on sport-orange">
-          <text x="180" y="78" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="92" letter-spacing="-3" fill="#0A0A0A">mavio</text>
-          <rect x="220" y="20" width="13" height="13" fill="#0A0A0A"/>
-        </svg>
-      </div>
-      <!-- Stamp / mark M·V -->
-      <div class="bg-[#F4F4F1] border border-black/20 rounded-2xl p-8 flex items-center justify-center aspect-square">
-        <svg viewBox="0 0 200 200" class="w-36 h-36" xmlns="http://www.w3.org/2000/svg" aria-label="Spec stamp — M dot V">
-          <circle cx="100" cy="100" r="90" fill="none" stroke="#0A0A0A" stroke-width="2"/>
-          <circle cx="100" cy="100" r="80" fill="none" stroke="#0A0A0A" stroke-width="0.6" stroke-dasharray="2 3"/>
-          <text x="100" y="118" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="60" letter-spacing="-2" fill="#0A0A0A">M·V</text>
-          <text x="100" y="160" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="3" fill="#0A0A0A">EST · 2025</text>
-        </svg>
-      </div>
-      <!-- Monogram square -->
-      <div class="bg-[#0A0A0A] rounded-2xl p-8 flex items-center justify-center aspect-square">
-        <svg viewBox="0 0 200 200" class="w-32 h-32" xmlns="http://www.w3.org/2000/svg" aria-label="Spec monogram — M with hatched dot">
-          <text x="100" y="135" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="180" letter-spacing="-8" fill="#F4F4F1">m</text>
-          <defs>
-            <pattern id="hatch-mono" patternUnits="userSpaceOnUse" width="3" height="3" patternTransform="rotate(45)">
-              <line x1="0" y1="0" x2="0" y2="3" stroke="#FF5A1F" stroke-width="1.2"/>
-            </pattern>
-          </defs>
-          <rect x="155" y="40" width="20" height="20" fill="url(#hatch-mono)" stroke="#F4F4F1" stroke-width="0.5"/>
+      <!-- Monogram -->
+      <div class="tile bg-[#0A0A0A] rounded-2xl p-8 flex items-center justify-center aspect-square">
+        <svg viewBox="0 0 200 200" class="w-32 h-32" xmlns="http://www.w3.org/2000/svg" aria-label="Spec monogram · m with sport dot">
+          <text x="100" y="142" text-anchor="middle" font-family="Bricolage Grotesque, sans-serif" font-weight="700" font-size="190" letter-spacing="-9" fill="#F0EEE9">m</text>
+          <circle cx="160" cy="48" r="11" fill="#FF5A1F"/>
         </svg>
       </div>
     </div>
 
     <div class="mono text-[11px] uppercase tracking-[0.18em] opacity-60 mt-3 grid grid-cols-4 gap-4">
-      <span>Ink / Cream</span><span>Sport / Ink</span><span>M·V Stamp</span><span>Monogram / Ink</span>
+      <span>Ink / Cream</span><span>Sport / Ink</span><span>Spec stamp</span><span>Monogram</span>
     </div>
   </section>
 
-  <!-- ========================== CONCEPT 03 — VOLLEY ========================== -->
+  <!-- ========================== CONCEPT 03 — ECHO ========================== -->
   <section class="mb-24 md:mb-32">
     <div class="grid md:grid-cols-12 gap-6 mb-10">
       <div class="md:col-span-3">
-        <div class="mono text-[11px] uppercase tracking-[0.2em] opacity-60">Concept 03</div>
-        <h2 class="serif text-4xl md:text-5xl font-semibold mt-2">Volley</h2>
+        <div class="mono text-[11px] uppercase tracking-[0.2em] opacity-60">Concept 03 · new</div>
+        <h2 class="serif text-4xl md:text-5xl font-semibold mt-2">Echo</h2>
       </div>
       <div class="md:col-span-9">
         <p class="text-base md:text-lg leading-relaxed opacity-80 max-w-2xl">
-          A condensed athletic wordmark with a felted ball-yellow dot and a tucked velocity slash. Built for kit graphics, court signage, and bold packaging. Sport-loud without being a logo decal.
+          A contemporary AI-tech wordmark — geometric, lowercase, considered. The dot of the <em class="serif">i</em> is a signal pulse with two faint concentric rings: a quiet visual cue that this is a <em>listening</em> machine. Reads as Linear, Vercel, Anthropic — premium AI hardware, not sports gear.
         </p>
         <div class="mono text-[11px] uppercase tracking-[0.18em] opacity-60 mt-3">
-          <span>Anton condensed</span> · <span>Ball-yellow dot</span> · <span>Velocity slash</span>
+          <span>Outfit 500</span> · <span>Pulse-ring dot</span> · <span>Cobalt accent</span>
         </div>
       </div>
     </div>
 
     <!-- Hero wordmark -->
-    <div class="bg-[#0B1F3A] text-[#FAFAF7] rounded-3xl p-12 md:p-20 mb-6 relative overflow-hidden">
-      <!-- Court-line backdrop -->
-      <div class="absolute inset-0 opacity-15">
-        <svg viewBox="0 0 800 400" preserveAspectRatio="none" class="w-full h-full">
-          <rect x="40" y="40" width="720" height="320" fill="none" stroke="#FAFAF7" stroke-width="1.2"/>
-          <line x1="400" y1="40" x2="400" y2="360" stroke="#FAFAF7" stroke-width="1.2"/>
-          <line x1="40" y1="120" x2="760" y2="120" stroke="#FAFAF7" stroke-width="1.2"/>
-          <line x1="40" y1="280" x2="760" y2="280" stroke="#FAFAF7" stroke-width="1.2"/>
-        </svg>
-      </div>
+    <div class="bg-[#F0EEE9] rounded-3xl p-12 md:p-24 mb-6 relative overflow-hidden">
+      <!-- Subtle grid -->
+      <div class="absolute inset-0 opacity-25" style="background-image:linear-gradient(rgba(37,64,240,.06) 1px, transparent 1px),linear-gradient(90deg, rgba(37,64,240,.06) 1px, transparent 1px); background-size:48px 48px;"></div>
 
-      <svg viewBox="0 0 720 240" class="w-full max-w-2xl mx-auto relative z-10" xmlns="http://www.w3.org/2000/svg" aria-label="Mavio wordmark — Volley concept">
-        <text x="360" y="180" text-anchor="middle" font-family="Anton, sans-serif" font-weight="400" font-size="220" letter-spacing="2" fill="#FAFAF7">MAV<tspan>I</tspan>O</text>
-        <!-- Felted yellow dot -->
-        <circle cx="395" cy="40" r="14" fill="#D4F542"/>
-        <path d="M 382 36 Q 395 50 408 36" fill="none" stroke="#0B1F3A" stroke-width="1.2"/>
-        <!-- Velocity slash -->
-        <path d="M 540 70 L 670 30" stroke="#D4F542" stroke-width="6" stroke-linecap="round"/>
+      <svg viewBox="0 0 720 240" class="w-full max-w-2xl mx-auto relative z-10" xmlns="http://www.w3.org/2000/svg" aria-label="Mavio wordmark — Echo">
+        <!-- Outfit geometric wordmark -->
+        <text x="360" y="170" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="500" font-size="180" letter-spacing="-7" fill="#0A0A0A">mavıo</text>
+        <!-- Signal pulse dot — concentric rings + center -->
+        <g transform="translate(348, 70)">
+          <!-- outermost faint ring -->
+          <circle cx="0" cy="0" r="22" fill="none" stroke="#2540F0" stroke-width="1" opacity="0.18"/>
+          <!-- middle ring -->
+          <circle cx="0" cy="0" r="14" fill="none" stroke="#2540F0" stroke-width="1.2" opacity="0.45"/>
+          <!-- core dot -->
+          <circle cx="0" cy="0" r="7" fill="#2540F0"/>
+        </g>
       </svg>
 
-      <div class="absolute bottom-4 right-6 mono text-[10px] tracking-[0.3em] opacity-50">
-        ATHLETIC WORDMARK · VOLLEY 03
+      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 mono text-[10px] tracking-[0.3em] opacity-50">
+        TYPE · OUTFIT 500 / SIGNAL PULSE
       </div>
     </div>
 
     <!-- Variation row -->
     <div class="grid md:grid-cols-4 gap-4">
-      <div class="bg-[#FAFAF7] border border-black/10 rounded-2xl p-8 flex items-center justify-center aspect-square">
-        <svg viewBox="0 0 360 130" class="w-full" xmlns="http://www.w3.org/2000/svg" aria-label="Volley wordmark on white">
-          <text x="180" y="100" text-anchor="middle" font-family="Anton, sans-serif" font-size="120" letter-spacing="2" fill="#0B1F3A">MAVIO</text>
-          <circle cx="200" cy="22" r="8" fill="#D4F542"/>
+      <!-- Bone / cobalt -->
+      <div class="tile bg-[#F0EEE9] border border-black/10 rounded-2xl p-8 flex items-center justify-center aspect-square">
+        <svg viewBox="0 0 360 110" class="w-full" xmlns="http://www.w3.org/2000/svg" aria-label="Echo · bone / cobalt">
+          <text x="180" y="86" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="500" font-size="100" letter-spacing="-4" fill="#0A0A0A">mavıo</text>
+          <g transform="translate(192, 38)">
+            <circle cx="0" cy="0" r="13" fill="none" stroke="#2540F0" stroke-width="0.6" opacity="0.2"/>
+            <circle cx="0" cy="0" r="8" fill="none" stroke="#2540F0" stroke-width="0.7" opacity="0.5"/>
+            <circle cx="0" cy="0" r="4" fill="#2540F0"/>
+          </g>
         </svg>
       </div>
-      <div class="bg-[#D4F542] text-[#0B1F3A] rounded-2xl p-8 flex items-center justify-center aspect-square">
-        <svg viewBox="0 0 360 130" class="w-full" xmlns="http://www.w3.org/2000/svg" aria-label="Volley wordmark on ball-yellow">
-          <text x="180" y="100" text-anchor="middle" font-family="Anton, sans-serif" font-size="120" letter-spacing="2" fill="#0B1F3A">MAVIO</text>
-          <circle cx="200" cy="22" r="8" fill="#0B1F3A"/>
+      <!-- Cobalt / bone -->
+      <div class="tile bg-[#2540F0] text-[#F0EEE9] rounded-2xl p-8 flex items-center justify-center aspect-square">
+        <svg viewBox="0 0 360 110" class="w-full" xmlns="http://www.w3.org/2000/svg" aria-label="Echo · cobalt / bone">
+          <text x="180" y="86" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="500" font-size="100" letter-spacing="-4" fill="#F0EEE9">mavıo</text>
+          <g transform="translate(192, 38)">
+            <circle cx="0" cy="0" r="13" fill="none" stroke="#F0EEE9" stroke-width="0.6" opacity="0.3"/>
+            <circle cx="0" cy="0" r="8" fill="none" stroke="#F0EEE9" stroke-width="0.7" opacity="0.6"/>
+            <circle cx="0" cy="0" r="4" fill="#F0EEE9"/>
+          </g>
         </svg>
       </div>
-      <!-- Mark / ball with M -->
-      <div class="bg-[#0B1F3A] rounded-2xl p-8 flex items-center justify-center aspect-square">
-        <svg viewBox="0 0 200 200" class="w-36 h-36" xmlns="http://www.w3.org/2000/svg" aria-label="Volley mark — felted ball with M">
-          <circle cx="100" cy="100" r="80" fill="#D4F542"/>
-          <path d="M 28 100 Q 100 30 172 100" fill="none" stroke="#0B1F3A" stroke-width="2"/>
-          <path d="M 28 100 Q 100 170 172 100" fill="none" stroke="#0B1F3A" stroke-width="2"/>
-          <text x="100" y="118" text-anchor="middle" font-family="Anton, sans-serif" font-size="64" letter-spacing="2" fill="#0B1F3A">M</text>
+      <!-- Signal mark standalone -->
+      <div class="tile bg-[#0A0A0A] rounded-2xl p-8 flex items-center justify-center aspect-square">
+        <svg viewBox="0 0 200 200" class="w-32 h-32" xmlns="http://www.w3.org/2000/svg" aria-label="Echo mark · Signal pulse">
+          <circle cx="100" cy="100" r="80" fill="none" stroke="#2540F0" stroke-width="1" opacity="0.2"/>
+          <circle cx="100" cy="100" r="56" fill="none" stroke="#2540F0" stroke-width="1.5" opacity="0.45"/>
+          <circle cx="100" cy="100" r="34" fill="none" stroke="#2540F0" stroke-width="2" opacity="0.7"/>
+          <circle cx="100" cy="100" r="18" fill="#2540F0"/>
         </svg>
       </div>
       <!-- Monogram -->
-      <div class="bg-[#FAFAF7] border border-black/10 rounded-2xl p-8 flex items-center justify-center aspect-square">
-        <svg viewBox="0 0 200 200" class="w-36 h-36" xmlns="http://www.w3.org/2000/svg" aria-label="Volley monogram — M with ball">
-          <text x="100" y="155" text-anchor="middle" font-family="Anton, sans-serif" font-size="200" letter-spacing="2" fill="#0B1F3A">M</text>
-          <circle cx="158" cy="42" r="11" fill="#D4F542"/>
+      <div class="tile bg-[#F0EEE9] border border-black/10 rounded-2xl p-8 flex items-center justify-center aspect-square">
+        <svg viewBox="0 0 200 200" class="w-32 h-32" xmlns="http://www.w3.org/2000/svg" aria-label="Echo monogram · m with signal dot">
+          <text x="100" y="148" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="500" font-size="170" letter-spacing="-6" fill="#0A0A0A">m</text>
+          <g transform="translate(150, 56)">
+            <circle cx="0" cy="0" r="14" fill="none" stroke="#2540F0" stroke-width="0.8" opacity="0.4"/>
+            <circle cx="0" cy="0" r="7" fill="#2540F0"/>
+          </g>
         </svg>
       </div>
     </div>
 
     <div class="mono text-[11px] uppercase tracking-[0.18em] opacity-60 mt-3 grid grid-cols-4 gap-4">
-      <span>Court / Navy</span><span>Ball / Navy</span><span>Felted Mark</span><span>Monogram / Court</span>
+      <span>Bone / Cobalt</span><span>Cobalt / Bone</span><span>Signal mark</span><span>Monogram</span>
     </div>
   </section>
 
@@ -294,25 +315,25 @@
     <h2 class="serif text-3xl md:text-4xl font-semibold mt-2 mb-10">Where each lives</h2>
 
     <div class="grid md:grid-cols-3 gap-4">
-      <div class="bg-[#0E0E0C] text-[#F5F0E8] rounded-2xl p-8 aspect-[4/5] flex flex-col justify-between">
+      <div class="tile bg-[#0E0E0C] text-[#F5F0E8] rounded-2xl p-8 aspect-[4/5] flex flex-col justify-between">
         <div class="mono text-[10px] tracking-[0.25em] opacity-60">CONCEPT 01 · TRACE</div>
         <div>
           <div class="serif text-2xl font-semibold leading-snug mb-3">For the editorial brand site, founder story, and quiet press placements.</div>
           <div class="mono text-[10px] tracking-[0.2em] opacity-60">VOGUE · KINFOLK · MONOCLE energy</div>
         </div>
       </div>
-      <div class="bg-[#F4F4F1] border border-black/10 rounded-2xl p-8 aspect-[4/5] flex flex-col justify-between">
+      <div class="tile bg-[#F0EEE9] border border-black/10 rounded-2xl p-8 aspect-[4/5] flex flex-col justify-between">
         <div class="mono text-[10px] tracking-[0.25em] opacity-60">CONCEPT 02 · SPEC</div>
         <div>
-          <div class="font-semibold text-2xl leading-snug mb-3" style="font-family:'Bricolage Grotesque', sans-serif;">For the spec sheet, Kickstarter campaign page, packaging, and engineering documents.</div>
+          <div class="grotesk font-bold text-2xl leading-snug mb-3">For the Kickstarter campaign, packaging, and engineering documents.</div>
           <div class="mono text-[10px] tracking-[0.2em] opacity-60">TEENAGE ENG · LEICA · APPLE energy</div>
         </div>
       </div>
-      <div class="bg-[#0B1F3A] text-[#FAFAF7] rounded-2xl p-8 aspect-[4/5] flex flex-col justify-between">
-        <div class="mono text-[10px] tracking-[0.25em] opacity-60">CONCEPT 03 · VOLLEY</div>
+      <div class="tile bg-[#F0EEE9] border border-black/10 rounded-2xl p-8 aspect-[4/5] flex flex-col justify-between" style="background:linear-gradient(180deg, #F0EEE9 0%, #F0EEE9 70%, #2540F0 220%);">
+        <div class="mono text-[10px] tracking-[0.25em] opacity-60">CONCEPT 03 · ECHO</div>
         <div>
-          <div class="anton text-3xl uppercase leading-tight mb-3">For court signage, kit, social, athlete partnerships, and bold launches.</div>
-          <div class="mono text-[10px] tracking-[0.2em] opacity-60">NIKE · NEW BALANCE · ON energy</div>
+          <div class="geo font-medium text-2xl leading-tight mb-3 text-[#0A0A0A]">For the AI product page, app dashboard, investor deck, and tech-forward press.</div>
+          <div class="mono text-[10px] tracking-[0.2em] opacity-60 text-[#0A0A0A]">LINEAR · VERCEL · ANTHROPIC energy</div>
         </div>
       </div>
     </div>
@@ -322,8 +343,9 @@
 
 <footer class="border-t border-black/10 py-10 px-6">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-    <div class="mono text-[11px] uppercase tracking-[0.2em] opacity-60">Logo concepts · Mavio · Banana Bytes 2026</div>
+    <div class="mono text-[11px] uppercase tracking-[0.2em] opacity-60">Logo concepts v2 · Mavio · Banana Bytes 2026</div>
     <div class="flex gap-6 text-sm">
+      <a href="select-mavio-explore.html" class="underline underline-offset-4 opacity-70 hover:opacity-100">selection page →</a>
       <a href="index.html" class="underline underline-offset-4 opacity-70 hover:opacity-100">← back to mockups</a>
     </div>
   </div>
